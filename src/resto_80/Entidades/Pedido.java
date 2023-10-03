@@ -11,28 +11,28 @@ package resto_80.Entidades;
  */
 public class Pedido {
     private int idPedido;
-    private int idMesa;
-    private int idProducto;
-    private int idMesero;
+    private Mesa mesa;
+    private Producto producto;
+    private Mesero mesero;
     private int cantidad;
     private boolean estado;
 
     public Pedido() {
     }
 
-    public Pedido(int idPedido, int idMesa, int idProducto, int idMesero, int cantidad, boolean estado) {
+    public Pedido(int idPedido, Mesa mesa, Producto producto, Mesero mesero, int cantidad, boolean estado) {
         this.idPedido = idPedido;
-        this.idMesa = idMesa;
-        this.idProducto = idProducto;
-        this.idMesero = idMesero;
+        this.mesa = mesa;
+        this.producto = producto;
+        this.mesero = mesero;
         this.cantidad = cantidad;
         this.estado = estado;
     }
 
-    public Pedido(int idMesa, int idProducto, int idMesero, int cantidad, boolean estado) {
-        this.idMesa = idMesa;
-        this.idProducto = idProducto;
-        this.idMesero = idMesero;
+    public Pedido(Mesa mesa, Producto producto, Mesero mesero, int cantidad, boolean estado) {
+        this.mesa = mesa;
+        this.producto = producto;
+        this.mesero = mesero;
         this.cantidad = cantidad;
         this.estado = estado;
     }
@@ -45,28 +45,28 @@ public class Pedido {
         this.idPedido = idPedido;
     }
 
-    public int getIdMesa() {
-        return idMesa;
+    public Mesa getMesa() {
+        return mesa;
     }
 
-    public void setIdMesa(int idMesa) {
-        this.idMesa = idMesa;
+    public void setMesa(Mesa mesa) {
+        this.mesa = mesa;
     }
 
-    public int getIdProducto() {
-        return idProducto;
+    public Producto getProducto() {
+        return producto;
     }
 
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 
-    public int getIdMesero() {
-        return idMesero;
+    public Mesero getMesero() {
+        return mesero;
     }
 
-    public void setIdMesero(int idMesero) {
-        this.idMesero = idMesero;
+    public void setMesero(Mesero mesero) {
+        this.mesero = mesero;
     }
 
     public int getCantidad() {
@@ -85,9 +85,11 @@ public class Pedido {
         this.estado = estado;
     }
 
+    
+
     @Override
     public String toString() {
-        return idPedido + " - " + idMesa + " - " + idProducto + " - " + idMesero + " - " + cantidad + " - "+ estado;
+        return idPedido + " - " + mesa + " - " + producto + " - " + mesero + " - " + cantidad + " - "+ estado;
     }
     
 }
