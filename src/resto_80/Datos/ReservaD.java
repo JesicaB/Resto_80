@@ -92,6 +92,12 @@ public class ReservaD {
             
             ps.setInt(1, idReserva);
             
+            int x = ps.executeUpdate();
+            
+            if(x == 1){
+                JOptionPane.showMessageDialog(null, "Reserva eliminada");
+            }
+            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Hubo un error y no se pudo eliminar la reserva seleccionada.");
         }
