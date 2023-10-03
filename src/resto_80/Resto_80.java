@@ -31,7 +31,11 @@ public class Resto_80 {
         
 //        rd.agregarReserva(r);
 //        rd.cancelarReserva(1);
-        
+//        rd.eliminarReserva(1);
+//        rd.modificarReserva(r);
+//        System.out.println(rd.listarReservas());
+
+
     }
     
 }

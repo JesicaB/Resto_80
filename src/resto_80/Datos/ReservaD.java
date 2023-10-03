@@ -12,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -102,5 +104,67 @@ public class ReservaD {
             JOptionPane.showMessageDialog(null, "Hubo un error y no se pudo eliminar la reserva seleccionada.");
         }
         
+    }
+    
+    public void modificarReserva(Reserva reserva){
+        String sql = "UPDATE reservas SET nombreCliente=?,DNI=?,Fecha=?,Hora=?,Estado=? WHERE idReserva= ?";
+        
+        try {
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setString(1, reserva.getNombreCliente());
+            ps.setInt(2, reserva.getDni());
+            ps.setDate(3, Date.valueOf(reserva.getFecha()));
+            ps.setTime(4, Time.valueOf(reserva.getHora()));
+            ps.setBoolean(5, reserva.isEstado());
+            
+            ps.setInt(6, reserva.getIdReserva());
+            
+            int x = ps.executeUpdate();
+            
+            if(x == 1){
+                JOptionPane.showMessageDialog(null, "Reserva modificada con exito.");
+            }
+            
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Hubo un error y no se pudo modificar la reserva seleccionada.");
+        }
+        
+    }
+    
+    public List<Reserva> listarReservas(){
+        String sql= "SELECT * FROM reservas";
+        ArrayList<Reserva>  ar= new ArrayList<>();
+        
+        try {
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ResultSet rs= ps.executeQuery();
+            
+            while(rs.next()){
+                
+                Reserva r = new Reserva();
+                
+                r.setIdReserva(rs.getInt("idReserva"));
+                r.setNombreCliente(rs.getString("nombreCliente"));
+                r.setDni(rs.getInt("DNI"));
+                r.setFecha(rs.getDate("Fecha").toLocalDate());
+                r.setHora(rs.getTime("Hora").toLocalTime());
+                r.setEstado(rs.getBoolean("Estado"));
+                
+                ar.add(r);
+            }
+            
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error, no se puede listar las reservas.");
+        }
+        
+        return ar;
     }
 }
