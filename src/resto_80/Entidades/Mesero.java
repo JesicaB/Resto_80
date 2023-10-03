@@ -1,21 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package resto_80.Entidades;
 
-/**
- *
- * @author Jesica
- */
+
 public class Mesero {
     private int idMesero;
     private String nombre;
     private String apellido;
     private String usuario;
     private int contraseña;
-    private boolean esatdo;
+    private boolean estado;
 
     public Mesero() {
     }
@@ -26,13 +19,13 @@ public class Mesero {
         this.apellido = apellido;
         this.usuario = usuario;
         this.contraseña = contraseña;
-        this.esatdo = esatdo;
+        this.estado = esatdo;
     }
 
     public Mesero(String nombre, String apellido, boolean esatdo) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.esatdo = esatdo;
+        this.estado = esatdo;
     }
 
     public Mesero(String nombre, String apellido, String usuario, int contraseña, boolean esatdo) {
@@ -40,7 +33,7 @@ public class Mesero {
         this.apellido = apellido;
         this.usuario = usuario;
         this.contraseña = contraseña;
-        this.esatdo = esatdo;
+        this.estado = esatdo;
     }
 
     public int getIdMesero() {
@@ -83,17 +76,17 @@ public class Mesero {
         this.contraseña = contraseña;
     }
 
-    public boolean isEsatdo() {
-        return esatdo;
+    public boolean isEstado() {
+        return estado;
     }
 
-    public void setEsatdo(boolean esatdo) {
-        this.esatdo = esatdo;
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 
     @Override
     public String toString() {
-        return idMesero + " - " + nombre + " - " + apellido + " - " + usuario + " - " + contraseña + " - " + esatdo;
+        return idMesero + " - " + nombre + " - " + apellido + " - " + usuario + " - " + contraseña + " - " + estado;
     }
     
 }
