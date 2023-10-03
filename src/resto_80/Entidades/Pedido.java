@@ -84,9 +84,7 @@ public class Pedido {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-
     
-
     @Override
     public String toString() {
         return idPedido + " - " + mesa + " - " + producto + " - " + mesero + " - " + cantidad + " - "+ estado;
