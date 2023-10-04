@@ -14,10 +14,7 @@ import resto_80.Datos.ProductoD;
 import resto_80.Entidades.Mesa;
 import resto_80.Entidades.Producto;
 
-/**
- *
- * @author Jesica
- */
+
 public class Resto_80 {
 
     /**
@@ -35,7 +32,7 @@ public class Resto_80 {
 //        System.out.println(prodd.listarProductos());
 //        prodd.modificarProducto(prod);
 //        System.out.println( prodd.buscarProducto(3));
-//          prodd.eliminarProducto(4);
+//        prodd.eliminarProducto(4);
     }
 
 }
