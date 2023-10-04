@@ -13,24 +13,15 @@ public class Mesa {
     private int idMesa;
     private int numeroMesa;
     private int capacidad;
-    private Reserva reserva;
     private boolean estado;
 
     public Mesa() {
     }
 
-    public Mesa(int idMesa, int numeroMesa, int capacidad, Reserva reserva, boolean estado) {
+    public Mesa(int idMesa, int numeroMesa, int capacidad, boolean estado) {
         this.idMesa = idMesa;
         this.numeroMesa = numeroMesa;
         this.capacidad = capacidad;
-        this.reserva = reserva;
-        this.estado = estado;
-    }
-
-    public Mesa(int numeroMesa, int capacidad, Reserva reserva, boolean estado) {
-        this.numeroMesa = numeroMesa;
-        this.capacidad = capacidad;
-        this.reserva = reserva;
         this.estado = estado;
     }
 
@@ -39,7 +30,7 @@ public class Mesa {
         this.capacidad = capacidad;
         this.estado = estado;
     }
-    
+
     public int getIdMesa() {
         return idMesa;
     }
@@ -64,14 +55,6 @@ public class Mesa {
         this.capacidad = capacidad;
     }
 
-    public Reserva getReserva() {
-        return reserva;
-    }
-
-    public void setReserva(Reserva reserva) {
-        this.reserva = reserva;
-    }
-
     public boolean isEstado() {
         return estado;
     }
@@ -82,8 +65,10 @@ public class Mesa {
 
     @Override
     public String toString() {
-        return idMesa + " - " + numeroMesa + " - " + capacidad + " - " + reserva + " - " + estado;
+        return idMesa + " - " + numeroMesa + " - " + capacidad + " - " + estado ;
     }
+
+    
     
     
 }

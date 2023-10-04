@@ -12,28 +12,19 @@ package resto_80.Entidades;
 public class Pedido {
     private int idPedido;
     private Mesa mesa;
-    private Producto producto;
-    private Mesero mesero;
-    private int cantidad;
     private boolean estado;
 
     public Pedido() {
     }
 
-    public Pedido(int idPedido, Mesa mesa, Producto producto, Mesero mesero, int cantidad, boolean estado) {
+    public Pedido(int idPedido, Mesa mesa, boolean estado) {
         this.idPedido = idPedido;
         this.mesa = mesa;
-        this.producto = producto;
-        this.mesero = mesero;
-        this.cantidad = cantidad;
         this.estado = estado;
     }
 
-    public Pedido(Mesa mesa, Producto producto, Mesero mesero, int cantidad, boolean estado) {
+    public Pedido(Mesa mesa, boolean estado) {
         this.mesa = mesa;
-        this.producto = producto;
-        this.mesero = mesero;
-        this.cantidad = cantidad;
         this.estado = estado;
     }
 
@@ -53,30 +44,6 @@ public class Pedido {
         this.mesa = mesa;
     }
 
-    public Producto getProducto() {
-        return producto;
-    }
-
-    public void setProducto(Producto producto) {
-        this.producto = producto;
-    }
-
-    public Mesero getMesero() {
-        return mesero;
-    }
-
-    public void setMesero(Mesero mesero) {
-        this.mesero = mesero;
-    }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
     public boolean isEstado() {
         return estado;
     }
@@ -84,10 +51,12 @@ public class Pedido {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-    
+
     @Override
     public String toString() {
-        return idPedido + " - " + mesa + " - " + producto + " - " + mesero + " - " + cantidad + " - "+ estado;
+        return  idPedido + " - " + mesa + " - " + estado;
     }
+
+   
     
 }
