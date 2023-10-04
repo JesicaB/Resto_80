@@ -12,24 +12,21 @@ package resto_80.Entidades;
 public class Producto {
     private int idProducto;
     private String nombre;
-    private int cantidad;
     private double precio;
     private boolean estado;
 
     public Producto() {
     }
 
-    public Producto(int idProducto, String nombre, int cantidad, double precio, boolean estado) {
+    public Producto(int idProducto, String nombre, double precio, boolean estado) {
         this.idProducto = idProducto;
         this.nombre = nombre;
-        this.cantidad = cantidad;
         this.precio = precio;
         this.estado = estado;
     }
 
-    public Producto(String nombre, int cantidad, double precio, boolean estado) {
+    public Producto(String nombre, double precio, boolean estado) {
         this.nombre = nombre;
-        this.cantidad = cantidad;
         this.precio = precio;
         this.estado = estado;
     }
@@ -50,14 +47,6 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
     public double getPrecio() {
         return precio;
     }
@@ -76,8 +65,8 @@ public class Producto {
 
     @Override
     public String toString() {
-        return idProducto + " - " + nombre + " - " + cantidad + " - " + precio + " - " + estado;
+        return  idProducto + " - " + nombre + " - " + precio + " - " + estado;
     }
-    
+
     
 }
