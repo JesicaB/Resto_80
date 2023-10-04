@@ -10,9 +10,9 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Month;
 import resto_80.Datos.Conexión;
-import resto_80.Datos.ReservaD;
+import resto_80.Datos.ProductoD;
 import resto_80.Entidades.Mesa;
-import resto_80.Entidades.Reserva;
+import resto_80.Entidades.Producto;
 
 /**
  *
@@ -25,17 +25,17 @@ public class Resto_80 {
      */
     public static void main(String[] args) {
         Connection conex = Conexión.getConnection();
-        
-        Reserva r = new Reserva(1, "Perez Carlos", 36355207, LocalDate.now(), LocalTime.now(), true);
-        ReservaD rd = new ReservaD();
-        
-//        rd.agregarReserva(r);
-//        rd.cancelarReserva(1);
-//        rd.eliminarReserva(1);
-//        rd.modificarReserva(r);
-//        System.out.println(rd.listarReservas());
 
+        Producto prod = new Producto(4, "Tacos", 2000, true);
+        ProductoD prodd = new ProductoD();
 
+//        prodd.agregarProducto(prod);
+//        prodd.bajaProducto(4);
+        
+//        System.out.println(prodd.listarProductos());
+//        prodd.modificarProducto(prod);
+//        System.out.println( prodd.buscarProducto(3));
+//          prodd.eliminarProducto(4);
     }
-    
+
 }
