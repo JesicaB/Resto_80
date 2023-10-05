@@ -21,8 +21,8 @@ public class MesaD {
     }
      public void agregarMesa(Mesa mesa) {
 
-        String sql = "INSERT INTO mesa (idMesa, Numero, Capacidad, Estado) "
-                + "VALUES (?, ?,?,?)";
+        String sql = "INSERT INTO mesas (Numero, Capacidad, Estado) "
+                + "VALUES (?,?,?)";
 
         try {
 
@@ -50,7 +50,7 @@ public class MesaD {
     }
 
     public void modificarMesa(Mesa mesa) {
-        String sql = "UPDATE mesa SET Numero=?, Capacidad=?, Estado=? WHERE idMesa=?";
+        String sql = "UPDATE mesas SET Numero=?, Capacidad=?, Estado=? WHERE idMesa=?";
 
         try {
 
@@ -99,7 +99,7 @@ public class MesaD {
     }
 
     public void bajaMesa(int idMesa) {
-        String sql = "UPDATE mesa SET Estado=0 WHERE idMesa=?";
+        String sql = "UPDATE mesas SET Estado=0 WHERE idMesa=?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -119,7 +119,7 @@ public class MesaD {
     }
 
     public List<Mesa> listarMesas() {
-        String sql = "SELECT * FROM mesa";
+        String sql = "SELECT * FROM mesas";
         ArrayList<Mesa> mesas = new ArrayList<>();
 
         try {
@@ -150,7 +150,7 @@ public class MesaD {
     }
 
     public Mesa buscarMesa(int id) {
-        String sql = "SELECT * FROM mesa WHERE idMesa = ?";
+        String sql = "SELECT * FROM mesas WHERE idMesa = ?";
         Mesa mesa = null;
         try {
             PreparedStatement ps = con.prepareStatement(sql);
