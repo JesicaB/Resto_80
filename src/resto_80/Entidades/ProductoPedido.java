@@ -10,23 +10,23 @@ package resto_80.Entidades;
  */
 public class ProductoPedido {
     private int idPP;
-    private Producto idProducto;
-    private Pedido idPedido;
+    private Producto producto;
+    private Pedido pedido;
     private int Cantidad;
 
     public ProductoPedido() {
     }
 
-    public ProductoPedido(int idPP, Producto idProducto, Pedido idPedido, int Cantidad) {
+    public ProductoPedido(int idPP, Producto producto, Pedido pedido, int Cantidad) {
         this.idPP = idPP;
-        this.idProducto = idProducto;
-        this.idPedido = idPedido;
+        this.producto = producto;
+        this.pedido = pedido;
         this.Cantidad = Cantidad;
     }
 
-    public ProductoPedido(Producto idProducto, Pedido idPedido, int Cantidad) {
-        this.idProducto = idProducto;
-        this.idPedido = idPedido;
+    public ProductoPedido(Producto producto, Pedido pedido, int Cantidad) {
+        this.producto = producto;
+        this.pedido = pedido;
         this.Cantidad = Cantidad;
     }
 
@@ -38,20 +38,20 @@ public class ProductoPedido {
         this.idPP = idPP;
     }
 
-    public Producto getIdProducto() {
-        return idProducto;
+    public Producto getProducto() {
+        return producto;
     }
 
-    public void setIdProducto(Producto idProducto) {
-        this.idProducto = idProducto;
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 
-    public Pedido getIdPedido() {
-        return idPedido;
+    public Pedido getPedido() {
+        return pedido;
     }
 
-    public void setIdPedido(Pedido idPedido) {
-        this.idPedido = idPedido;
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 
     public int getCantidad() {
@@ -64,7 +64,7 @@ public class ProductoPedido {
 
     @Override
     public String toString() {
-        return  idPP + " - " + idProducto + " - " + idPedido + " - " + Cantidad ;
+        return  idPP + " - " + producto + " - " + pedido + " - " + Cantidad ;
     }
     
     
