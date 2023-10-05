@@ -26,10 +26,12 @@ public class Resto_80 {
     public static void main(String[] args) {
       Connection conex = Conexión.getConnection();
 
-        Mesa mes = new Mesa(5, 4, 3, true);
-        MesaD mesd = new MesaD();
-        
-        mesd.agregarMesa(mes);
+            Mesa mes = new Mesa(5, 5, 2, true);
+            MesaD mesd = new MesaD();
+
+            
+            mesd.modificarMesa(mes);
+            //mesd.agregarMesa(mes);
         
         //Pedido ped = new Pedido(3, mes, true);
         //PedidoD pedd = new PedidoD();
