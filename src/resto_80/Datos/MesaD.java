@@ -21,15 +21,16 @@ public class MesaD {
     }
      public void agregarMesa(Mesa mesa) {
 
-        String sql = "INSERT INTO mesa (Numero, Estado) "
-                + "VALUES (?,?)";
+        String sql = "INSERT INTO mesa (idMesa, Numero, Capacidad, Estado) "
+                + "VALUES (?, ?,?,?)";
 
         try {
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             ps.setInt(1, mesa.getNumeroMesa());
-            ps.setBoolean(2, mesa.isEstado());
+            ps.setInt(2, mesa.getCapacidad());
+            ps.setBoolean(3, mesa.isEstado());
            
             ps.executeUpdate();
 
@@ -43,38 +44,40 @@ public class MesaD {
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Hubo un error al Inicializar la Mesa."
-                    + "Verifique que la Mesa no haya sido cargado anteriormente");
+            JOptionPane.showMessageDialog(null, "Hubo un error al agregar la Mesa."
+                    + "Verifique que la Mesa no haya sido agregada anteriormente");
         }
     }
 
     public void modificarMesa(Mesa mesa) {
-        String sql = "UPDATE mesa SET Numero=?, Estado=? WHERE idMesa=?";
+        String sql = "UPDATE mesa SET Numero=?, Capacidad=?, Estado=? WHERE idMesa=?";
 
         try {
 
             PreparedStatement ps = con.prepareStatement(sql);
 
             ps.setInt(1, mesa.getNumeroMesa());
-            ps.setBoolean(2, mesa.isEstado());
+            ps.setInt(2, mesa.getCapacidad());
+            ps.setBoolean(3, mesa.isEstado());
+            ps.setInt(4, mesa.getIdMesa());
            
 
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
-                JOptionPane.showMessageDialog(null, "Producto modificado.");
+                JOptionPane.showMessageDialog(null, "Mesa modificada.");
             }
 
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla productos.");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla mesas.");
         }
 
     }
 
     public void eliminarMesa(int idMesa) {
-        String sql = "DELETE FROM productos WHERE idProducto=?";
+        String sql = "DELETE FROM mesas WHERE idMesa=?";
 
         try {
 
@@ -129,6 +132,7 @@ public class MesaD {
                 Mesa mesa = new Mesa();
                 mesa.setIdMesa(rs.getInt("idMesa"));
                 mesa.setNumeroMesa(rs.getInt("Numero"));
+                mesa.setCapacidad(rs.getInt("Capacidad"));
                 mesa.setEstado(rs.getBoolean("Estado"));
 
                mesas.add(mesa);
@@ -138,7 +142,7 @@ public class MesaD {
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Mesa.");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla mesas.");
         }
 
         return mesas;
@@ -158,16 +162,17 @@ public class MesaD {
                 mesa = new Mesa();
                 mesa.setIdMesa(rs.getInt("idMesa"));
                 mesa.setNumeroMesa(rs.getInt("Numero"));
+                mesa.setCapacidad(rs.getInt("Capacidad"));
                 mesa.setEstado(rs.getBoolean("Estado"));
 
             } else {
-                JOptionPane.showMessageDialog(null, "El producto no existe o fue eliminado");
+                JOptionPane.showMessageDialog(null, "La mesa no existe o fue eliminado");
             }
 
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto.");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla mesas.");
         }
 
         return mesa;

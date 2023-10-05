@@ -10,8 +10,11 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Month;
 import resto_80.Datos.Conexión;
+import resto_80.Datos.MesaD;
+import resto_80.Datos.PedidoD;
 import resto_80.Datos.ProductoD;
 import resto_80.Entidades.Mesa;
+import resto_80.Entidades.Pedido;
 import resto_80.Entidades.Producto;
 
 
@@ -21,10 +24,26 @@ public class Resto_80 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Connection conex = Conexión.getConnection();
+      Connection conex = Conexión.getConnection();
 
-        Producto prod = new Producto(4, "Tacos", 2000, true);
-        ProductoD prodd = new ProductoD();
+        Mesa mes = new Mesa(4, 4, 3, true);
+        MesaD mesd = new MesaD();
+        
+        mesd.agregarMesa(mes);
+        
+        //Pedido ped = new Pedido(3, mes, true);
+        //PedidoD pedd = new PedidoD();
+        
+        
+        //System.out.println(pedd.buscarPedido(2));
+        
+        //pedd.eliminarPedido(3);
+        //pedd.bajaPedido(3);
+        
+       //pedd.agregarPedido(ped);
+
+        //Producto prod = new Producto(4, "Tacos", 2000, true);
+        //ProductoD prodd = new ProductoD();
 
 //        prodd.agregarProducto(prod);
 //        prodd.bajaProducto(4);
