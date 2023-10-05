@@ -26,18 +26,22 @@ public class Resto_80 {
     public static void main(String[] args) {
       Connection conex = Conexión.getConnection();
 
-            Mesa mes = new Mesa(5, 5, 2, true);
+            Mesa mes = new Mesa(1,1,4,true);
             MesaD mesd = new MesaD();
-
             
-            mesd.modificarMesa(mes);
+            //System.out.println(mesd.listarMesas());
+            //mesd.eliminarMesa(4);
+            //mesd.bajaMesa(2);
+            //System.out.println(mesd.buscarMesa(3));
+            //mesd.modificarMesa(mes);
             //mesd.agregarMesa(mes);
         
-        //Pedido ped = new Pedido(3, mes, true);
-        //PedidoD pedd = new PedidoD();
+        Pedido ped = new Pedido(3, mes, true);
+        PedidoD pedd = new PedidoD();
         
+        //System.out.println(pedd.listarPedidos());
         
-        //System.out.println(pedd.buscarPedido(2));
+        System.out.println(pedd.buscarPedido(3));
         
         //pedd.eliminarPedido(3);
         //pedd.bajaPedido(3);

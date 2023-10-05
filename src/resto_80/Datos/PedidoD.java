@@ -1,21 +1,15 @@
 package resto_80.Datos;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import resto_80.Entidades.Mesa;
 import resto_80.Entidades.Pedido;
-import resto_80.Entidades.Producto;
-
 
 public class PedidoD {
 
@@ -25,18 +19,18 @@ public class PedidoD {
     public PedidoD() {
         con = Conexión.getConnection();
     }
-    
-    public void agregarPedido(Pedido pedido){
-        
+
+    public void agregarPedido(Pedido pedido) {
+
         String sql = "INSERT INTO pedidos (idPedido, idMesa, Estado) "
                 + "VALUES (?,?,?)";
-        
+
         try {
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             ps.setInt(1, pedido.getIdPedido());
-            ps.setInt(2, pedido.getMesa().getIdMesa());
+            ps.setInt(2, pedido.getMesa().getNumeroMesa());
             ps.setBoolean(3, pedido.isEstado());
 
             ps.executeUpdate();
@@ -55,8 +49,8 @@ public class PedidoD {
                     + "Verifique que el pedido no haya sido cargado anteriormente");
         }
     }
-    
-     public void modificarPedido(Pedido pedido) {
+
+    public void modificarPedido(Pedido pedido) {
         String sql = "UPDATE pedidos SET idMesa=? WHERE idPedido=?";
 
         try {
@@ -79,8 +73,8 @@ public class PedidoD {
         }
 
     }
-     
-         public void eliminarPedido(int idPedido) {
+
+    public void eliminarPedido(int idPedido) {
         String sql = "DELETE FROM pedidos WHERE idPedido=?";
 
         try {
@@ -101,8 +95,8 @@ public class PedidoD {
         }
 
     }
-         
-         public void bajaPedido(int idPedido) {
+
+    public void bajaPedido(int idPedido) {
         String sql = "UPDATE pedidos SET Estado=0 WHERE idPedido=?";
 
         try {
@@ -121,8 +115,8 @@ public class PedidoD {
         }
 
     }
-         
-         public List<Pedido> listarPedidos() {
+
+    public List<Pedido> listarPedidos() {
         String sql = "SELECT * FROM pedidos";
         ArrayList<Pedido> pedidos = new ArrayList<>();
 
@@ -134,13 +128,13 @@ public class PedidoD {
             while (rs.next()) {
 
                 Pedido pedido = new Pedido();
-                                                                
+
                 pedido.setIdPedido(rs.getInt("idPedido"));
                 Mesa mesa = mesad.buscarMesa(rs.getInt("idMesa"));
                 pedido.setEstado(rs.getBoolean("Estado"));
 
                 pedido.setMesa(mesa);
-                
+
                 pedidos.add(pedido);
             }
 
@@ -153,21 +147,21 @@ public class PedidoD {
         return pedidos;
 
     }
-         
-        public Pedido buscarPedido(int id) {
+
+    public Pedido buscarPedido(int id) {
         String sql = "SELECT * FROM pedidos WHERE idPedido = ?";
         Pedido pedido = null;
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();           
-            
+            ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
 
                 pedido = new Pedido();
                 pedido.setIdPedido(rs.getInt("idPedido"));
                 Mesa mesa = mesad.buscarMesa(rs.getInt("idMesa"));
+                pedido.setMesa(mesa);
                 pedido.setEstado(rs.getBoolean("Estado"));
 
             } else {
@@ -183,5 +177,5 @@ public class PedidoD {
         return pedido;
 
     }
-    
+
 }
