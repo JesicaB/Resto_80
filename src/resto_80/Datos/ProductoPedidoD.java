@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package resto_80.Datos;
 
 import java.sql.Connection;
@@ -16,14 +12,11 @@ import javax.swing.JOptionPane;
 import resto_80.Entidades.Producto;
 import resto_80.Entidades.ProductoPedido;
 
-/**
- *
- * @author Jesica
- */
+
 public class ProductoPedidoD {
     private Connection con = null;
     private ProductoD pd = new ProductoD();
-//    private PedidoD pedidoD = new PedidoD();
+    private PedidoD pedidoD = new PedidoD();
     
     public ProductoPedidoD() {
         con = Conexión.getConnection();

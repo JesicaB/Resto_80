@@ -16,10 +16,7 @@ import resto_80.Entidades.Mesa;
 import resto_80.Entidades.Pedido;
 import resto_80.Entidades.Producto;
 
-/**
- *
- * @author MANUEL
- */
+
 public class PedidoD {
 
     private Connection con = null;
@@ -60,15 +57,14 @@ public class PedidoD {
     }
     
      public void modificarPedido(Pedido pedido) {
-        String sql = "UPDATE pedidos SET idMesa=?,Estado=? WHERE idPedido=?";
+        String sql = "UPDATE pedidos SET idMesa=? WHERE idPedido=?";
 
         try {
 
             PreparedStatement ps = con.prepareStatement(sql);
 
             ps.setInt(1, pedido.getMesa().getIdMesa());
-            ps.setBoolean(2, pedido.isEstado());
-            ps.setInt(3, pedido.getIdPedido());
+            ps.setInt(2, pedido.getIdPedido());
 
             int exito = ps.executeUpdate();
 

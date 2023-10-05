@@ -50,7 +50,7 @@ public class MesaD {
     }
 
     public void modificarMesa(Mesa mesa) {
-        String sql = "UPDATE mesas SET Numero=?, Capacidad=?, Estado=? WHERE idMesa=?";
+        String sql = "UPDATE mesas SET Numero=?, Capacidad=? WHERE idMesa=?";
 
         try {
 
@@ -58,8 +58,7 @@ public class MesaD {
 
             ps.setInt(1, mesa.getNumeroMesa());
             ps.setInt(2, mesa.getCapacidad());
-            ps.setBoolean(3, mesa.isEstado());
-            ps.setInt(4, mesa.getIdMesa());
+            ps.setInt(3, mesa.getIdMesa());
            
 
             int exito = ps.executeUpdate();
