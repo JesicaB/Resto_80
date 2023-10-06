@@ -1,15 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package resto_80.Entidades;
 
-/**
- *
- * @author Jesica
- */
 public class Mesa {
+
     private int idMesa;
     private int numeroMesa;
     private int capacidad;
@@ -65,10 +57,7 @@ public class Mesa {
 
     @Override
     public String toString() {
-        return idMesa + " - " + numeroMesa + " - " + capacidad + " - " + estado ;
+        return idMesa + " - " + numeroMesa + " - " + capacidad + " - " + estado;
     }
 
-    
-    
-    
 }

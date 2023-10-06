@@ -10,16 +10,16 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import resto_80.Entidades.Mesa;
 
-
-
 public class MesaD {
- private Connection con = null;
+
+    private Connection con = null;
 
     public MesaD() {
-        con = Conexión.getConnection();   
-    
+        con = Conexión.getConnection();
+
     }
-     public void agregarMesa(Mesa mesa) {
+
+    public void agregarMesa(Mesa mesa) {
 
         String sql = "INSERT INTO mesas (Numero, Capacidad, Estado) "
                 + "VALUES (?,?,?)";
@@ -31,7 +31,7 @@ public class MesaD {
             ps.setInt(1, mesa.getNumeroMesa());
             ps.setInt(2, mesa.getCapacidad());
             ps.setBoolean(3, mesa.isEstado());
-           
+
             ps.executeUpdate();
 
             ResultSet rs = ps.getGeneratedKeys();
@@ -59,7 +59,6 @@ public class MesaD {
             ps.setInt(1, mesa.getNumeroMesa());
             ps.setInt(2, mesa.getCapacidad());
             ps.setInt(3, mesa.getIdMesa());
-           
 
             int exito = ps.executeUpdate();
 
@@ -134,8 +133,8 @@ public class MesaD {
                 mesa.setCapacidad(rs.getInt("Capacidad"));
                 mesa.setEstado(rs.getBoolean("Estado"));
 
-               mesas.add(mesa);
-               
+                mesas.add(mesa);
+
             }
 
             ps.close();
@@ -176,6 +175,5 @@ public class MesaD {
 
         return mesa;
 
+    }
 }
-}
-

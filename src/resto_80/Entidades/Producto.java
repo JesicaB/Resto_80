@@ -1,15 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package resto_80.Entidades;
 
-/**
- *
- * @author Jesica
- */
 public class Producto {
+
     private int idProducto;
     private String nombre;
     private double precio;
@@ -31,7 +23,7 @@ public class Producto {
         this.nombre = nombre;
         this.precio = precio;
         this.estado = estado;
-        this. stock = stock;
+        this.stock = stock;
     }
 
     public int getStock() {
@@ -76,8 +68,7 @@ public class Producto {
 
     @Override
     public String toString() {
-        return  idProducto + " - " + nombre + " - " + precio + " - " + estado;
+        return "Producto{" + "idProducto=" + idProducto + ", nombre=" + nombre + ", precio=" + precio + ", estado=" + estado + ", stock=" + stock + '}';
     }
 
-    
 }

@@ -1,24 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package resto_80.Entidades;
 
 import java.time.LocalDate;
 
-/**
- *
- * @author Jesica
- */
 public class Pedido {
+
     private int idPedido;
     private Mesa mesa;
     private boolean estado;
     private String mesero;
     private LocalDate f_H;
     private double importe;
-    
+
     public Pedido() {
     }
 
@@ -63,8 +55,6 @@ public class Pedido {
         this.importe = importe;
     }
 
-  
-
     public int getIdPedido() {
         return idPedido;
     }
@@ -91,9 +81,7 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return  idPedido + " - " + mesa + " - " + estado;
+        return "Pedido{" + "idPedido=" + idPedido + ", mesa=" + mesa + ", estado=" + estado + ", mesero=" + mesero + ", f_H=" + f_H + ", importe=" + importe + '}';
     }
 
-   
-    
 }

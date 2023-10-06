@@ -10,7 +10,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import resto_80.Entidades.Producto;
 
-
 public class ProductoD {
 
     private Connection con = null;
@@ -21,8 +20,8 @@ public class ProductoD {
 
     public void agregarProducto(Producto producto) {
 
-        String sql = "INSERT INTO productos (Nombre, Precio, Estado) "
-                + "VALUES (?,?,?)";
+        String sql = "INSERT INTO productos(nombre, precio, stock, estado) "
+                + "VALUES (?,?,?,?)";
 
         try {
 
@@ -30,7 +29,8 @@ public class ProductoD {
 
             ps.setString(1, producto.getNombre());
             ps.setDouble(2, producto.getPrecio());
-            ps.setBoolean(3, producto.isEstado());
+            ps.setInt(3, producto.getStock());
+            ps.setBoolean(4, producto.isEstado());
 
             ps.executeUpdate();
 
@@ -50,7 +50,7 @@ public class ProductoD {
     }
 
     public void modificarProducto(Producto producto) {
-        String sql = "UPDATE productos SET Nombre=?,Precio=? WHERE idProducto=?";
+        String sql = "UPDATE productos SET Nombre=?,Precio=?,Stock=? WHERE idProducto=?";
 
         try {
 
@@ -58,7 +58,8 @@ public class ProductoD {
 
             ps.setString(1, producto.getNombre());
             ps.setDouble(2, producto.getPrecio());
-            ps.setInt(3, producto.getIdProducto());
+            ps.setInt(3, producto.getStock());
+            ps.setInt(4, producto.getIdProducto());
 
             int exito = ps.executeUpdate();
 
@@ -131,6 +132,7 @@ public class ProductoD {
                 producto.setIdProducto(rs.getInt("idProducto"));
                 producto.setNombre(rs.getString("Nombre"));
                 producto.setPrecio(rs.getDouble("Precio"));
+                producto.setStock(rs.getInt("stock"));
                 producto.setEstado(rs.getBoolean("Estado"));
 
                 productos.add(producto);
@@ -160,6 +162,7 @@ public class ProductoD {
                 producto.setIdProducto(rs.getInt("idProducto"));
                 producto.setNombre(rs.getString("Nombre"));
                 producto.setPrecio(rs.getDouble("Precio"));
+                producto.setStock(rs.getInt("stock"));
                 producto.setEstado(rs.getBoolean("Estado"));
 
             } else {
