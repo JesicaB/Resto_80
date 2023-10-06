@@ -28,11 +28,11 @@ public class Resto_80 {
 //            mesd.agregarMesa(mes);
 //        
 //        Pedido ped = new Pedido(3, mes, true);
-//        PedidoD pedd = new PedidoD();
+        PedidoD pedd = new PedidoD();
 //        
 //        System.out.println(pedd.listarPedidos());
 //        
-//        System.out.println(pedd.buscarPedido(3));
+        System.out.println(pedd.buscarPedido(1).getMesa().getIdMesa()+" - "+pedd.buscarPedido(1).getIdPedido()+" - "+pedd.buscarPedido(1).isEstado());
 //        
 //        pedd.eliminarPedido(3);
 //        pedd.bajaPedido(3);
