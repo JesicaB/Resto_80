@@ -9,12 +9,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import resto_80.Entidades.Empleado;
 import resto_80.Entidades.Mesa;
 import resto_80.Entidades.Pedido;
 
 public class PedidoD {
 
-    private Connection con = null;
+       private Connection con = null;
     MesaD mesad = new MesaD();
 
     public PedidoD() {
@@ -23,7 +24,7 @@ public class PedidoD {
 
     public void agregarPedido(Pedido pedido) {
 
-        String sql = "INSERT INTO pedidos(idMesa, nombreMesero, fyh, importe, estado) "
+        String sql = "INSERT INTO pedidos(idMesa, idEmpleado, fyh, importe, estado) "
                 + "VALUES (?,?,?,?,?)";
 
         try {
@@ -31,7 +32,7 @@ public class PedidoD {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             ps.setInt(1, pedido.getMesa().getIdMesa());
-            ps.setString(2, pedido.getMesero());
+            ps.setInt(2, pedido.getMesero().getIdEmpleado());
             ps.setDate(3, Date.valueOf(pedido.getF_H()));
             ps.setDouble(4, pedido.getImporte());
             ps.setBoolean(5, pedido.isEstado());
@@ -54,14 +55,14 @@ public class PedidoD {
     }
 
     public void modificarPedido(Pedido pedido) {
-        String sql = "UPDATE pedidos SET idMesa=?,nombreMesero=?,fyh=?,importe=? WHERE idPedido=?";
+        String sql = "UPDATE pedidos SET idMesa=?,idEmpleado=?,fyh=?,importe=? WHERE idPedido=?";
 
         try {
 
             PreparedStatement ps = con.prepareStatement(sql);
 
             ps.setInt(1, pedido.getMesa().getIdMesa());
-            ps.setString(2, pedido.getMesero());
+            ps.setInt(2, pedido.getMesero().getIdEmpleado());
             ps.setDate(3, Date.valueOf(pedido.getF_H()));
             ps.setDouble(4, pedido.getImporte());
             ps.setInt(5, pedido.getIdPedido());
@@ -138,7 +139,9 @@ public class PedidoD {
                 pedido.setIdPedido(rs.getInt("idPedido"));
                 Mesa mesa = mesad.buscarMesa(rs.getInt("idMesa"));
                 pedido.setMesa(mesa);
-                pedido.setMesero(rs.getString("nombreMesero"));
+                EmpleadoD empD=new EmpleadoD();
+                Empleado mesero= empD.buscarEmpleadoId(rs.getInt("idEmpleado"));
+                pedido.setMesero(mesero);
                 pedido.setF_H(rs.getDate("fyh").toLocalDate());
                 pedido.setImporte(rs.getDouble("importe"));
                 pedido.setEstado(rs.getBoolean("Estado"));
@@ -172,7 +175,9 @@ public class PedidoD {
                 pedido.setIdPedido(rs.getInt("idPedido"));
                 Mesa mesa = mesad.buscarMesa(rs.getInt("idMesa"));
                 pedido.setMesa(mesa);
-                pedido.setMesero(rs.getString("nombreMesero"));
+                EmpleadoD empD=new EmpleadoD();
+                Empleado mesero= empD.buscarEmpleadoId(rs.getInt("idEmpleado"));
+                pedido.setMesero(mesero);
                 pedido.setF_H(rs.getDate("fyh").toLocalDate());
                 pedido.setImporte(rs.getDouble("importe"));
                 pedido.setEstado(rs.getBoolean("Estado"));
@@ -190,5 +195,4 @@ public class PedidoD {
         return pedido;
 
     }
-
 }

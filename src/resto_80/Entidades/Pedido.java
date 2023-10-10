@@ -4,17 +4,17 @@ import java.time.LocalDate;
 
 public class Pedido {
 
-    private int idPedido;
+     private int idPedido;
     private Mesa mesa;
     private boolean estado;
-    private String mesero;
+    private Empleado mesero;
     private LocalDate f_H;
     private double importe;
 
     public Pedido() {
     }
 
-    public Pedido(int idPedido, Mesa mesa, boolean estado, String mesero, LocalDate f_H, double importe) {
+    public Pedido(int idPedido, Mesa mesa, boolean estado, Empleado mesero, LocalDate f_H, double importe) {
         this.idPedido = idPedido;
         this.mesa = mesa;
         this.estado = estado;
@@ -23,7 +23,7 @@ public class Pedido {
         this.importe = importe;
     }
 
-    public Pedido(Mesa mesa, boolean estado, String mesero, LocalDate f_H, double importe) {
+    public Pedido(Mesa mesa, boolean estado, Empleado mesero, LocalDate f_H, double importe) {
         this.mesa = mesa;
         this.estado = estado;
         this.mesero = mesero;
@@ -31,11 +31,11 @@ public class Pedido {
         this.importe = importe;
     }
 
-    public String getMesero() {
+    public Empleado getMesero() {
         return mesero;
     }
 
-    public void setMesero(String mesero) {
+    public void setMesero(Empleado mesero) {
         this.mesero = mesero;
     }
 

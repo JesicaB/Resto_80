@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Jesica/OneDrive/Documentos/NetBeansProjects/Resto_80/src/resto_80/Resto_80.java</file>
-            <file>file:/C:/Users/Jesica/OneDrive/Documentos/NetBeansProjects/Resto_80/src/resto_80/Datos/PedidoD.java</file>
-            <file>file:/C:/Users/Jesica/OneDrive/Documentos/NetBeansProjects/Resto_80/src/resto_80/Datos/MesaD.java</file>
+            <file>file:/C:/Users/nicop/Documents/GitHub/Resto_80/src/resto_80/Datos/Conexión.java</file>
+            <file>file:/C:/Users/nicop/Documents/GitHub/Resto_80/src/resto_80/Datos/PedidoD.java</file>
+            <file>file:/C:/Users/nicop/Documents/GitHub/Resto_80/src/resto_80/Resto_80.java</file>
+            <file>file:/C:/Users/nicop/Documents/GitHub/Resto_80/src/resto_80/Entidades/ProductoPedido.java</file>
+            <file>file:/C:/Users/nicop/Documents/GitHub/Resto_80/src/resto_80/Entidades/Pedido.java</file>
         </group>
     </open-files>
 </project-private>
