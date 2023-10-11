@@ -1,20 +1,21 @@
 package resto_80.Entidades;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Pedido {
 
-     private int idPedido;
+    private int idPedido;
     private Mesa mesa;
     private boolean estado;
     private Empleado mesero;
-    private LocalDate f_H;
+    private LocalDateTime f_H;
     private double importe;
 
     public Pedido() {
     }
 
-    public Pedido(int idPedido, Mesa mesa, boolean estado, Empleado mesero, LocalDate f_H, double importe) {
+    public Pedido(int idPedido, Mesa mesa, boolean estado, Empleado mesero, LocalDateTime f_H, double importe) {
         this.idPedido = idPedido;
         this.mesa = mesa;
         this.estado = estado;
@@ -23,7 +24,7 @@ public class Pedido {
         this.importe = importe;
     }
 
-    public Pedido(Mesa mesa, boolean estado, Empleado mesero, LocalDate f_H, double importe) {
+    public Pedido(Mesa mesa, boolean estado, Empleado mesero, LocalDateTime f_H, double importe) {
         this.mesa = mesa;
         this.estado = estado;
         this.mesero = mesero;
@@ -39,11 +40,11 @@ public class Pedido {
         this.mesero = mesero;
     }
 
-    public LocalDate getF_H() {
+    public LocalDateTime getF_H() {
         return f_H;
     }
 
-    public void setF_H(LocalDate f_H) {
+    public void setF_H(LocalDateTime f_H) {
         this.f_H = f_H;
     }
 
@@ -81,7 +82,7 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return "Pedido{" + "idPedido=" + idPedido + ", mesa=" + mesa + ", estado=" + estado + ", mesero=" + mesero + ", f_H=" + f_H + ", importe=" + importe + '}';
+        return "Pedido: id{" + idPedido + "} - " + mesa + " - Estado{" + estado + "} - " + mesero + " - Date{" + f_H + "} - Importe{" + importe + "}.";
     }
 
 }

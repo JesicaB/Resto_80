@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -14,8 +15,7 @@ import resto_80.Entidades.Mesa;
 import resto_80.Entidades.Pedido;
 
 public class PedidoD {
-
-       private Connection con = null;
+    private Connection con = null;
     MesaD mesad = new MesaD();
 
     public PedidoD() {
@@ -33,7 +33,13 @@ public class PedidoD {
 
             ps.setInt(1, pedido.getMesa().getIdMesa());
             ps.setInt(2, pedido.getMesero().getIdEmpleado());
-            ps.setDate(3, Date.valueOf(pedido.getF_H()));
+            
+            //setObject recibe un entero y un objeto y devuelve la fecha y hora
+            //acutal con el now imbocado en el main (un void()).
+            ps.setObject(3, pedido.getF_H());
+            
+//            ps.setDate(3, Date.valueOf(pedido.getF_H().toLocalDate()));
+
             ps.setDouble(4, pedido.getImporte());
             ps.setBoolean(5, pedido.isEstado());
 
@@ -63,7 +69,10 @@ public class PedidoD {
 
             ps.setInt(1, pedido.getMesa().getIdMesa());
             ps.setInt(2, pedido.getMesero().getIdEmpleado());
-            ps.setDate(3, Date.valueOf(pedido.getF_H()));
+            
+             ps.setObject(3, pedido.getF_H());
+//            ps.setDate(3, Date.valueOf(pedido.getF_H()));
+
             ps.setDouble(4, pedido.getImporte());
             ps.setInt(5, pedido.getIdPedido());
 
@@ -137,16 +146,21 @@ public class PedidoD {
                 Pedido pedido = new Pedido();
 
                 pedido.setIdPedido(rs.getInt("idPedido"));
+                
                 Mesa mesa = mesad.buscarMesa(rs.getInt("idMesa"));
                 pedido.setMesa(mesa);
+                
                 EmpleadoD empD=new EmpleadoD();
                 Empleado mesero= empD.buscarEmpleadoId(rs.getInt("idEmpleado"));
                 pedido.setMesero(mesero);
-                pedido.setF_H(rs.getDate("fyh").toLocalDate());
-                pedido.setImporte(rs.getDouble("importe"));
-                pedido.setEstado(rs.getBoolean("Estado"));
+                
+                pedido.setF_H(rs.getObject("fyh", LocalDateTime.class));
+//                pedido.setF_H(rs.getDate("fyh").toLocalDate());
 
-                pedido.setMesa(mesa);
+                pedido.setImporte(rs.getDouble("importe"));
+                pedido.setEstado(rs.getBoolean("estado"));
+
+//                pedido.setMesa(mesa);
 
                 pedidos.add(pedido);
             }
@@ -173,12 +187,17 @@ public class PedidoD {
 
                 pedido = new Pedido();
                 pedido.setIdPedido(rs.getInt("idPedido"));
+                
                 Mesa mesa = mesad.buscarMesa(rs.getInt("idMesa"));
                 pedido.setMesa(mesa);
+                
                 EmpleadoD empD=new EmpleadoD();
                 Empleado mesero= empD.buscarEmpleadoId(rs.getInt("idEmpleado"));
                 pedido.setMesero(mesero);
-                pedido.setF_H(rs.getDate("fyh").toLocalDate());
+                
+                pedido.setF_H(rs.getObject("fyh", LocalDateTime.class));
+//                pedido.setF_H(rs.getDate("fyh").toLocalDate());
+
                 pedido.setImporte(rs.getDouble("importe"));
                 pedido.setEstado(rs.getBoolean("Estado"));
 
