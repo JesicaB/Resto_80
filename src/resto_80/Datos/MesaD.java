@@ -176,4 +176,25 @@ public class MesaD {
         return mesa;
 
     }
+    
+    public void modificarIdMesa(int id, int n) {
+        String sql = "UPDATE mesas SET idMesa=? WHERE numero=?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.setInt(2, n);
+
+            int bm = ps.executeUpdate();
+
+            if (bm == 1) {
+                JOptionPane.showMessageDialog(null, "Mesa dada de Baja");
+            }
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Hubo un error y no se pudo Dar de Baja la Mesa seleccionada");
+        }
+
+    }
 }
