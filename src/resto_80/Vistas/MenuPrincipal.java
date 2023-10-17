@@ -434,6 +434,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             return n;
         }
         return n;
+        
     }
     
     //carga las mesas que ya estan credas en la base de datos en el panel:
@@ -465,6 +466,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
     //carga mesas nuevas en el panel:
     private void crearMesa(){
+        JButton boton = new JButton();
         boton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Mesa.jpeg")));
         boton.setBackground(new Color(0, 250, 154));
         boton.addActionListener(new ActionListener() {

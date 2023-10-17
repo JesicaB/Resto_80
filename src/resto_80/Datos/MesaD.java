@@ -156,6 +156,34 @@ public class MesaD {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
+                mesa = new Mesa();
+                mesa.setIdMesa(rs.getInt("idMesa"));
+                mesa.setNumeroMesa(rs.getInt("Numero"));
+                mesa.setCapacidad(rs.getInt("Capacidad"));
+                mesa.setEstado(rs.getBoolean("Estado"));
+
+            } else {
+//                JOptionPane.showMessageDialog(null, "La mesa no existe o fue eliminado");
+            }
+
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla mesas.");
+        }
+
+        return mesa;
+
+    }
+    public Mesa buscarMesaXNumero(int n) {
+        String sql = "SELECT * FROM mesas WHERE numero= ?";
+        Mesa mesa = null;
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, n);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
 
                 mesa = new Mesa();
                 mesa.setIdMesa(rs.getInt("idMesa"));
@@ -186,10 +214,7 @@ public class MesaD {
             ps.setInt(2, n);
 
             int bm = ps.executeUpdate();
-
-            if (bm == 1) {
-                JOptionPane.showMessageDialog(null, "Mesa dada de Baja");
-            }
+            
             ps.close();
 
         } catch (SQLException ex) {
