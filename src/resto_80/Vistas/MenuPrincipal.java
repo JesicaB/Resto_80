@@ -35,10 +35,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
-        Escritorio.setVisible(true);
+        Escritorio.setVisible(false);
         cargarMeseros();
         cargarProductos();
-//        cargarMesas();
+        cargarMesas();
     }
 
     /**
