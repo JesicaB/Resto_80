@@ -190,7 +190,7 @@ public class gestionMesas extends javax.swing.JInternalFrame {
 
             MesaD mesaD = new MesaD();
 
-            Mesa mesa = mesaD.buscarMesa(Integer.parseInt(jTNumMesa.getText()));
+            Mesa mesa = mesaD.buscarMesaXNumero(Integer.parseInt(jTNumMesa.getText()));
 
             jTidMesa.setText(mesa.getIdMesa() + "");
 

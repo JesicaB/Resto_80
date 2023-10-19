@@ -148,7 +148,7 @@ public class MesaD {
     }
 
     public Mesa buscarMesa(int numero) {
-        String sql = "SELECT * FROM mesas WHERE numero = ?";
+        String sql = "SELECT * FROM mesas WHERE idMesa = ?";
         Mesa mesa = null;
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -162,10 +162,8 @@ public class MesaD {
                 mesa.setCapacidad(rs.getInt("Capacidad"));
                 mesa.setEstado(rs.getBoolean("Estado"));
 
-            } else {
-                JOptionPane.showMessageDialog(null, "La mesa no existe");
             }
-
+            
             ps.close();
 
         } catch (SQLException ex) {
@@ -175,6 +173,7 @@ public class MesaD {
         return mesa;
 
     }
+    
     public Mesa buscarMesaXNumero(int n) {
         String sql = "SELECT * FROM mesas WHERE numero= ?";
         Mesa mesa = null;

@@ -5,29 +5,18 @@
  */
 package resto_80.Vistas;
 
-import java.awt.Color;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.PropertyVetoException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
-import javax.swing.JInternalFrame;
-import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import resto_80.Datos.EmpleadoD;
 import resto_80.Datos.MesaD;
-import resto_80.Datos.PedidoD;
 import resto_80.Datos.ProductoD;
-import resto_80.Datos.ProductoPedidoD;
 import resto_80.Entidades.Empleado;
 import resto_80.Entidades.Mesa;
-import resto_80.Entidades.Pedido;
 import resto_80.Entidades.Producto;
-import resto_80.Entidades.ProductoPedido;
 
 /**
  *
@@ -348,7 +337,7 @@ public class Salon1 extends javax.swing.JInternalFrame {
         }
     } 
     
-    
+     //carga combo box con numero de mesas.
     private void cargarMesa(){
         productos.removeAllItems();
         
