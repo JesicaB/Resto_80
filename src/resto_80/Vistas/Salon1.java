@@ -36,7 +36,6 @@ public class Salon1 extends javax.swing.JInternalFrame {
         initComponents();
         panel2.setVisible(false);
         cargarMesas();
-        cargarMesa();
         armarCabecera();
         cargarMeseros();
         cargarProductos();
@@ -57,9 +56,7 @@ public class Salon1 extends javax.swing.JInternalFrame {
         panel2 = new javax.swing.JPanel();
         camarero = new javax.swing.JComboBox<>();
         productos = new javax.swing.JComboBox<>();
-        mesas = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -67,6 +64,7 @@ public class Salon1 extends javax.swing.JInternalFrame {
         tabla = new javax.swing.JTable();
         cargar = new javax.swing.JButton();
         cargar1 = new javax.swing.JButton();
+        nmesa = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -87,15 +85,7 @@ public class Salon1 extends javax.swing.JInternalFrame {
             }
         });
 
-        mesas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mesasActionPerformed(evt);
-            }
-        });
-
         jLabel1.setText("Camarero");
-
-        jLabel2.setText("Mesas");
 
         jLabel3.setText("Productos");
 
@@ -128,6 +118,9 @@ public class Salon1 extends javax.swing.JInternalFrame {
             }
         });
 
+        nmesa.setFont(new java.awt.Font("Segoe UI Historic", 1, 18)); // NOI18N
+        nmesa.setText("nmesa");
+
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
         panel2Layout.setHorizontalGroup(
@@ -140,31 +133,32 @@ public class Salon1 extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cargar1))
                     .addGroup(panel2Layout.createSequentialGroup()
-                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4)
-                                .addComponent(jTextField1)
-                                .addComponent(camarero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(mesas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(productos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 12, Short.MAX_VALUE))
+                    .addGroup(panel2Layout.createSequentialGroup()
+                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jTextField1)
+                            .addComponent(camarero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(productos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(panel2Layout.createSequentialGroup()
+                .addGap(111, 111, 111)
+                .addComponent(nmesa, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(25, 25, 25)
+                .addComponent(nmesa, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(camarero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(mesas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -213,10 +207,6 @@ public class Salon1 extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_productosActionPerformed
 
-    private void mesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mesasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mesasActionPerformed
-
     private void cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarActionPerformed
         // TODO add your handling code here:
         panel2.setVisible(false);
@@ -232,12 +222,11 @@ public class Salon1 extends javax.swing.JInternalFrame {
     private javax.swing.JButton cargar;
     private javax.swing.JButton cargar1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JComboBox<String> mesas;
+    private javax.swing.JLabel nmesa;
     private javax.swing.JPanel panel1;
     private javax.swing.JPanel panel2;
     private javax.swing.JComboBox<String> productos;
@@ -274,53 +263,47 @@ public class Salon1 extends javax.swing.JInternalFrame {
         }
     } 
     
-     //carga combo box con numero de mesas.
-    private void cargarMesa(){
-        productos.removeAllItems();
-        
-        for(int i = 0; i<b.size(); i++){
-            mesas.addItem(b.get(i));
-        }
-        
-    }
-    
+       
 //    private void cargarTabla(ProductoPedido pp){
 //        modelo.addRow(new Object[]{pp.getIdPP(),pp.getProducto().getNombre(),pp.getPedido().getMesa().getIdMesa(),pp.getPedido().getMesero().getNombre_apellido(),pp.getCantidad(),pp.getPedido().getImporte()});
 //    }
     
     //devulelve el numero de mesa:
-    private int nMesa(){
-        int  n = 1;
-        MesaD md = new MesaD();
-        
-        try{
-            while(md.buscarMesa(n).getIdMesa() == n){
-                n++;
-            }
-        }catch (NullPointerException x){
-            return n;
-        }
-        return n;
-    }
+//    private int nMesa(){
+//        int  n = 1;
+//        MesaD md = new MesaD();
+//        
+//        try{
+//            while(md.buscarMesa(n).getIdMesa() == n){
+//                n++;
+//            }
+//        }catch (NullPointerException x){
+//            return n;
+//        }
+//        return n;
+//    }
     
     //carga las mesas que ya estan credas en la base de datos en el panel:
     private void cargarMesas(){
-        int id = nMesa();
+
+        MesaD md = new MesaD();
         
-        while(n<id){
+        ArrayList <Mesa> mesas=(ArrayList <Mesa>) md.listarMesas();
         
+        for (Mesa m:mesas){
+            
         JButton boton = new JButton();
         
-        boton.setName("Mesa"+n);
-        String nombre = boton.getName();
-        b.add(nombre);
+        boton.setName("MESA " + m.getNumeroMesa());
             
         boton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Mesa.jpeg")));
+        boton.setText(boton.getName());
            
         boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 panel2.setVisible(true);
+                nmesa.setText(boton.getName());
             }
         });
         
