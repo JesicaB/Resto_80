@@ -96,10 +96,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Mesa");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("Empleado");
         jMenuItem3.setToolTipText("");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
@@ -146,7 +156,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+       escritorio.removeAll();
+        escritorio.repaint();
+        gestionProductos gdp = new gestionProductos ();
+        gdp.setVisible(true);
+        escritorio.add(gdp);
+        escritorio.moveToFront(gdp);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void botonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActionPerformed
@@ -160,6 +175,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.moveToFront(s);
         
     }//GEN-LAST:event_botonActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        gestionEmpleados gde = new gestionEmpleados ();
+        gde.setVisible(true);
+        escritorio.add(gde);
+        escritorio.moveToFront(gde);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+          escritorio.removeAll();
+        escritorio.repaint();
+        gestionMesas gdm = new gestionMesas ();
+        gdm.setVisible(true);
+        escritorio.add(gdm);
+        escritorio.moveToFront(gdm);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments

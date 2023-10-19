@@ -117,7 +117,7 @@ public class ProductoD {
 
     }
 
-    public List<Producto> listarProductos() {
+    public ArrayList<Producto> listarProductos() {
         String sql = "SELECT * FROM productos";
         ArrayList<Producto> productos = new ArrayList<>();
 

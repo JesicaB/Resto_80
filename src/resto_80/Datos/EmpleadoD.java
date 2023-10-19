@@ -166,7 +166,7 @@ public class EmpleadoD {
                 empleado.setEstado(rs.getBoolean("Estado"));
 
             } else {
-                JOptionPane.showMessageDialog(null, "El empleado no existe o fue eliminado");
+                JOptionPane.showMessageDialog(null, "El empleado no existe");
             }
 
             ps.close();
@@ -196,7 +196,7 @@ public class EmpleadoD {
                 empleado.setEstado(rs.getBoolean("Estado"));
 
             } else {
-                JOptionPane.showMessageDialog(null, "El empleado no existe o fue eliminado");
+                JOptionPane.showMessageDialog(null, "El empleado no existe");
             }
 
             ps.close();

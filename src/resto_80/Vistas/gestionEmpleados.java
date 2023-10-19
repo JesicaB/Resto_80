@@ -1,6 +1,5 @@
 package resto_80.Vistas;
 
-
 import javax.swing.JOptionPane;
 import resto_80.Datos.EmpleadoD;
 import resto_80.Entidades.Empleado;
@@ -9,7 +8,7 @@ public class gestionEmpleados extends javax.swing.JInternalFrame {
 
     public gestionEmpleados() {
         initComponents();
-        
+
     }
 
     /**
@@ -55,18 +54,8 @@ public class gestionEmpleados extends javax.swing.JInternalFrame {
         jLabel5.setText("ESTADO");
 
         jTidEmpleado.setEnabled(false);
-        jTidEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTidEmpleadoActionPerformed(evt);
-            }
-        });
 
         jTNombre.setEnabled(false);
-        jTNombre.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTNombreKeyTyped(evt);
-            }
-        });
 
         jBBuscar.setText("BUSCAR");
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -182,41 +171,43 @@ public class gestionEmpleados extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTidEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTidEmpleadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTidEmpleadoActionPerformed
-
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
 
         try {
+            jTNombre.setEnabled(false);
+            jTNombre.setText("");
+            jTidEmpleado.setText("");
+            jRInactivo.setEnabled(false);
+            jRInactivo.setSelected(false);
+            jRActivo.setEnabled(false);
+            jRActivo.setSelected(false);
+
             EmpleadoD empD = new EmpleadoD();
 
-            if (Integer.parseInt(jTDNI.getText()) < 7 && Integer.parseInt(jTDNI.getText()) > 8) {
+            Empleado empleado = empD.buscarEmpleado(Integer.parseInt(jTDNI.getText()));
 
-                JOptionPane.showMessageDialog(null, "Verificar el DNI ingresado");
+            jTidEmpleado.setText(empleado.getIdEmpleado() + "");
+
+            jTNombre.setText(empleado.getNombre_apellido());
+
+            if (empleado.isEstado() == true) {
+                jRActivo.setSelected(true);
+                jRInactivo.setSelected(false);
             } else {
-
-                Empleado empleado = empD.buscarEmpleado(Integer.parseInt(jTDNI.getText()));
-
-                jTidEmpleado.setText(empleado.getIdEmpleado() + "");
-
-                jTNombre.setText(empleado.getNombre_apellido());
-
-                if (empleado.isEstado() == true) {
-                    jRActivo.setSelected(true);
-                    jRInactivo.setSelected(false);
-                } else {
-                    jRInactivo.setSelected(true);
-                    jRActivo.setSelected(false);
-                }
-
-                jTNombre.setEnabled(true);
-                jRInactivo.setEnabled(true);
-                jRActivo.setEnabled(true);
-                jBGuardar.setEnabled(true);
+                jRInactivo.setSelected(true);
+                jRActivo.setSelected(false);
             }
+
+            jTNombre.setEnabled(true);
+            jRInactivo.setEnabled(true);
+            jRActivo.setEnabled(true);
+            jBGuardar.setEnabled(true);
+
         } catch (NumberFormatException x) {
             JOptionPane.showMessageDialog(null, "Ingrese solo numeros sin puntos.");
+            jTDNI.setText("");
+        } catch (NullPointerException x) {
+            jTDNI.setText("");
         }
 
     }//GEN-LAST:event_jBBuscarActionPerformed
@@ -228,18 +219,26 @@ public class gestionEmpleados extends javax.swing.JInternalFrame {
 
         if (jTidEmpleado.getText().equalsIgnoreCase("")) {
 
-            emp.setDni(Integer.parseInt(jTDNI.getText()));
-            emp.setNombre_apellido(jTNombre.getText());
-            if (jRActivo.isSelected()) {
-                emp.setEstado(true);
+            if (jTDNI.getText().equalsIgnoreCase("")) {
+                JOptionPane.showMessageDialog(null, "Debe completar el campo DNI");
 
+            } else if (jTNombre.getText().equalsIgnoreCase("")) {
+                JOptionPane.showMessageDialog(null, "Debe completar el campo NOMBRE Y APELLIDO");
+            } else if ((jRActivo.isSelected() == false) && ((jRInactivo.isSelected() == false))) {
+                JOptionPane.showMessageDialog(null, "Debe completar el campo ESTADO");
             } else {
-                emp.setEstado(false);
+                emp.setDni(Integer.parseInt(jTDNI.getText()));
+                emp.setNombre_apellido(jTNombre.getText());
+                if (jRActivo.isSelected()) {
+                    emp.setEstado(true);
+
+                } else {
+                    emp.setEstado(false);
+                }
+                empD.agregarEmpleado(emp);
+
+                jTidEmpleado.setText(emp.getIdEmpleado() + "");
             }
-
-            empD.agregarEmpleado(emp);
-
-            jTidEmpleado.setText(emp.getIdEmpleado() + "");
 
         } else {
 
@@ -283,10 +282,6 @@ public class gestionEmpleados extends javax.swing.JInternalFrame {
     private void jRInactivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRInactivoActionPerformed
         jRActivo.setSelected(false);
     }//GEN-LAST:event_jRInactivoActionPerformed
-
-    private void jTNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTNombreKeyTyped
-        
-    }//GEN-LAST:event_jTNombreKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

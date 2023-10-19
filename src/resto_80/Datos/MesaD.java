@@ -147,12 +147,12 @@ public class MesaD {
 
     }
 
-    public Mesa buscarMesa(int id) {
-        String sql = "SELECT * FROM mesas WHERE idMesa = ?";
+    public Mesa buscarMesa(int numero) {
+        String sql = "SELECT * FROM mesas WHERE numero = ?";
         Mesa mesa = null;
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, numero);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -163,7 +163,7 @@ public class MesaD {
                 mesa.setEstado(rs.getBoolean("Estado"));
 
             } else {
-//                JOptionPane.showMessageDialog(null, "La mesa no existe o fue eliminado");
+                JOptionPane.showMessageDialog(null, "La mesa no existe");
             }
 
             ps.close();
