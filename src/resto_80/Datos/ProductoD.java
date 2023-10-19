@@ -178,4 +178,34 @@ public class ProductoD {
         return producto;
 
     }
+    
+    public Producto buscarProductoxNombre(String nombre){
+        String sql = "SELECT * FROM productos WHERE nombre= ?";
+        Producto producto = null;
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, nombre);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+
+                producto = new Producto();
+                producto.setIdProducto(rs.getInt("idProducto"));
+                producto.setNombre(rs.getString("Nombre"));
+                producto.setPrecio(rs.getDouble("Precio"));
+                producto.setStock(rs.getInt("stock"));
+                producto.setEstado(rs.getBoolean("Estado"));
+
+            } else {
+                JOptionPane.showMessageDialog(null, "El producto no existe o fue eliminado");
+            }
+
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto.");
+        }
+
+        return producto;
+    }
 }
