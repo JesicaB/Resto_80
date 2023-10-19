@@ -41,6 +41,7 @@ public class Salon1 extends javax.swing.JInternalFrame {
         cargarMeseros();
         cargarProductos();
         
+        
     }
 
     /**

@@ -34,11 +34,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
+        
         escritorio.removeAll();
         escritorio.repaint();
         boton.setVisible(true);
         escritorio.add(boton);
-        escritorio.moveToFront(boton);;
+        escritorio.moveToFront(boton);
     }
 
     /**
@@ -54,9 +55,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         boton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        Producto = new javax.swing.JMenuItem();
+        Mesa = new javax.swing.JMenuItem();
+        Empleado = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -87,30 +88,30 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenu1.setText("Administración ");
 
-        jMenuItem1.setText("Producto");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        Producto.setText("Producto");
+        Producto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                ProductoActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(Producto);
 
-        jMenuItem2.setText("Mesa");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        Mesa.setText("Mesa");
+        Mesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                MesaActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(Mesa);
 
-        jMenuItem3.setText("Empleado");
-        jMenuItem3.setToolTipText("");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        Empleado.setText("Empleado");
+        Empleado.setToolTipText("");
+        Empleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                EmpleadoActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        jMenu1.add(Empleado);
 
         jMenuBar1.add(jMenu1);
 
@@ -155,14 +156,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void ProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductoActionPerformed
        escritorio.removeAll();
         escritorio.repaint();
         gestionProductos gdp = new gestionProductos ();
         gdp.setVisible(true);
         escritorio.add(gdp);
         escritorio.moveToFront(gdp);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+        
+        boton.setVisible(true);
+        escritorio.add(boton);
+        escritorio.moveToBack(boton);
+    }//GEN-LAST:event_ProductoActionPerformed
 
     private void botonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActionPerformed
         // TODO add your handling code here:
@@ -174,25 +179,37 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.add(s);
         escritorio.moveToFront(s);
         
+        boton.setVisible(true);
+        escritorio.add(boton);
+        escritorio.moveToBack(boton);
+        
     }//GEN-LAST:event_botonActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void EmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpleadoActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
         gestionEmpleados gde = new gestionEmpleados ();
         gde.setVisible(true);
         escritorio.add(gde);
         escritorio.moveToFront(gde);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+        
+        boton.setVisible(true);
+        escritorio.add(boton);
+        escritorio.moveToBack(boton);
+    }//GEN-LAST:event_EmpleadoActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-          escritorio.removeAll();
+    private void MesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MesaActionPerformed
+         escritorio.removeAll();
         escritorio.repaint();
         gestionMesas gdm = new gestionMesas ();
         gdm.setVisible(true);
         escritorio.add(gdm);
         escritorio.moveToFront(gdm);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+        
+        boton.setVisible(true);
+        escritorio.add(boton);
+        escritorio.moveToBack(boton);
+    }//GEN-LAST:event_MesaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,14 +247,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JMenuItem Empleado;
+    public javax.swing.JMenuItem Mesa;
+    public javax.swing.JMenuItem Producto;
     public javax.swing.JButton boton;
     public javax.swing.JDesktopPane escritorio;
     public javax.swing.JMenu jMenu1;
     public javax.swing.JMenu jMenu8;
     public javax.swing.JMenuBar jMenuBar1;
-    public javax.swing.JMenuItem jMenuItem1;
-    public javax.swing.JMenuItem jMenuItem2;
-    public javax.swing.JMenuItem jMenuItem3;
     public javax.swing.JMenuItem jMenuItem4;
     public javax.swing.JMenuItem jMenuItem5;
     public javax.swing.JMenuItem jMenuItem6;
