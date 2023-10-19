@@ -51,7 +51,6 @@ public class gestionProductos extends javax.swing.JInternalFrame {
         jTidproducto = new javax.swing.JTextField();
         jTNombre = new javax.swing.JTextField();
         jTStock = new javax.swing.JTextField();
-        jBBuscar = new javax.swing.JButton();
         jBNuevo = new javax.swing.JButton();
         jTPrecio = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -89,13 +88,6 @@ public class gestionProductos extends javax.swing.JInternalFrame {
         jTNombre.setEnabled(false);
 
         jTStock.setEnabled(false);
-
-        jBBuscar.setText("BUSCAR");
-        jBBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBBuscarActionPerformed(evt);
-            }
-        });
 
         jBNuevo.setText("NUEVO");
         jBNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -207,10 +199,7 @@ public class gestionProductos extends javax.swing.JInternalFrame {
                                 .addGap(308, 308, 308))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addGap(132, 132, 132))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jBBuscar)
-                                .addGap(38, 38, 38))))))
+                                .addGap(132, 132, 132))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,9 +235,7 @@ public class gestionProductos extends javax.swing.JInternalFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jRActivo)
                         .addComponent(jRInactivo)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(jBBuscar)
-                .addGap(6, 6, 6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBNuevo)
                     .addComponent(jBGuardar))
@@ -334,51 +321,6 @@ public class gestionProductos extends javax.swing.JInternalFrame {
         jRInactivo.setSelected(false);
     }//GEN-LAST:event_jBNuevoActionPerformed
 
-    private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
-
-        try {
-            jTNombre.setEnabled(false);
-            jTNombre.setText("");
-            jTStock.setEnabled(false);
-            jTStock.setText("");
-            jTPrecio.setEnabled(false);
-            jTPrecio.setText("");
-            jRInactivo.setEnabled(false);
-            jRInactivo.setSelected(false);
-            jRActivo.setEnabled(false);
-            jRActivo.setSelected(false);
-
-            ProductoD proD = new ProductoD();
-
-            Producto pro = proD.buscarProducto(Integer.parseInt(jTidproducto.getText()));
-
-            jTNombre.setText(pro.getNombre());
-            jTStock.setText(pro.getStock() + "");
-            jTPrecio.setText(pro.getPrecio() + "");
-            if (pro.isEstado() == true) {
-                jRActivo.setSelected(true);
-                jRInactivo.setSelected(false);
-            } else {
-                jRInactivo.setSelected(true);
-                jRActivo.setSelected(false);
-            }
-
-            jTNombre.setEnabled(true);
-            jTPrecio.setEnabled(true);
-            jTStock.setEnabled(true);
-            jRInactivo.setEnabled(true);
-            jRActivo.setEnabled(true);
-            jBGuardar.setEnabled(true);
-
-        } catch (NumberFormatException x) {
-            JOptionPane.showMessageDialog(null, "Ingrese solo numeros.");
-            jTidproducto.setText("");
-        } catch (NullPointerException x) {
-            jTidproducto.setText("");
-        }
-
-    }//GEN-LAST:event_jBBuscarActionPerformed
-
 
     private void jTBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTBusquedaKeyReleased
         ProductoD proD = new ProductoD();
@@ -448,7 +390,6 @@ public class gestionProductos extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBBuscar;
     private javax.swing.JButton jBGuardar;
     private javax.swing.JButton jBNuevo;
     private javax.swing.JLabel jLabel1;

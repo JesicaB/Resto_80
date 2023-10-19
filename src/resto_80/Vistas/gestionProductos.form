@@ -87,10 +87,6 @@
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jBBuscar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -139,9 +135,7 @@
                       <Component id="jRInactivo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="54" max="32767" attributes="0"/>
-              <Component id="jBBuscar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+              <EmptySpace pref="89" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jBNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jBGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -206,14 +200,6 @@
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jBBuscar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="BUSCAR"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBBuscarActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jBNuevo">
       <Properties>
