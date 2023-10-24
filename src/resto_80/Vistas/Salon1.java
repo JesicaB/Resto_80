@@ -25,7 +25,6 @@ import resto_80.Entidades.Producto;
 public class Salon1 extends javax.swing.JInternalFrame {
     private DefaultTableModel modelo = new DefaultTableModel();
     ArrayList<String> b = new ArrayList<>();
-    private int n = 1;
     
     JButton boton = new JButton();
     /**
@@ -67,6 +66,7 @@ public class Salon1 extends javax.swing.JInternalFrame {
         nmesa = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         total = new javax.swing.JTextField();
+        cobrar = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -195,14 +195,24 @@ public class Salon1 extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
+        cobrar.setText("Cobrar Mesa");
+        cobrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cobrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cobrar))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -211,7 +221,9 @@ public class Salon1 extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(cobrar)
+                .addContainerGap())
         );
 
         pack();
@@ -246,6 +258,13 @@ public class Salon1 extends javax.swing.JInternalFrame {
         }
         
         total.setText(suma+"");
+       
+        int i = Integer.parseInt(nmesa.getText());
+        System.out.println(i);
+
+        MesaD md = new MesaD();
+        md.bajaMesa(i);
+          
     }//GEN-LAST:event_cargarActionPerformed
 
     private void cargar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargar1ActionPerformed
@@ -257,12 +276,20 @@ public class Salon1 extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_totalActionPerformed
 
+    private void cobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cobrarActionPerformed
+        // TODO add your handling code here:
+        int i = Integer.parseInt(nmesa.getText());
+        MesaD md = new MesaD();
+        md.altaMesa(i);
+    }//GEN-LAST:event_cobrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> camarero;
     private javax.swing.JTextField cantidad;
     private javax.swing.JButton cargar;
     private javax.swing.JButton cargar1;
+    private javax.swing.JButton cobrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -355,8 +382,6 @@ public class Salon1 extends javax.swing.JInternalFrame {
         
         panel1.add(boton);
         panel1.updateUI();
-        
-        n++;
         
         }
     }

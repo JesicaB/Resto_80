@@ -221,4 +221,24 @@ public class MesaD {
         }
 
     }
+    
+    public void altaMesa(int idMesa) {
+        String sql = "UPDATE mesas SET Estado=1 WHERE idMesa=?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idMesa);
+
+            int bm = ps.executeUpdate();
+
+//            if (bm == 1) {
+//                JOptionPane.showMessageDialog(null, "Mesa dada de Baja");
+//            }
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Hubo un error y no se pudo Dar de Baja la Mesa seleccionada");
+        }
+
+    }
 }
