@@ -207,4 +207,32 @@ public class EmpleadoD {
 
         return empleado;
      }
+     public Empleado buscarEmpleadoNombre(String nombre) {
+        String sql = "SELECT * FROM empleados WHERE nombre_apellido = ?";
+        Empleado empleado = null;
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, nombre);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+
+                empleado = new Empleado();
+                empleado.setIdEmpleado(rs.getInt("idEmpleado"));
+                empleado.setNombre_apellido(rs.getString("nombre_Apellido"));
+                empleado.setDni(rs.getInt("DNI"));
+                empleado.setEstado(rs.getBoolean("Estado"));
+
+            } else {
+                JOptionPane.showMessageDialog(null, "El empleado no existe");
+            }
+
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla empleados.");
+        }
+
+        return empleado;
+     }
 }
