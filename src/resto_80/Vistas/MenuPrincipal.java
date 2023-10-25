@@ -61,7 +61,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu8 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        pedidosMesas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menú Principal");
@@ -123,8 +123,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuItem5.setText("Pedido por Mesero");
         jMenu8.add(jMenuItem5);
 
-        jMenuItem6.setText("Pedido Por Mesa");
-        jMenu8.add(jMenuItem6);
+        pedidosMesas.setText("Pedido Por Mesa");
+        pedidosMesas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pedidosMesasActionPerformed(evt);
+            }
+        });
+        jMenu8.add(pedidosMesas);
 
         jMenuBar1.add(jMenu8);
 
@@ -211,6 +216,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.moveToBack(boton);
     }//GEN-LAST:event_MesaActionPerformed
 
+    private void pedidosMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedidosMesasActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        PedidoPorMesa pm = new PedidoPorMesa();
+        pm.setVisible(true);
+        escritorio.add(pm);
+        escritorio.moveToFront(pm);
+        
+        boton.setVisible(true);
+        escritorio.add(boton);
+        escritorio.moveToBack(boton);
+        
+    }//GEN-LAST:event_pedidosMesasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -257,7 +277,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public javax.swing.JMenuBar jMenuBar1;
     public javax.swing.JMenuItem jMenuItem4;
     public javax.swing.JMenuItem jMenuItem5;
-    public javax.swing.JMenuItem jMenuItem6;
+    public javax.swing.JMenuItem pedidosMesas;
     // End of variables declaration//GEN-END:variables
 
 }
