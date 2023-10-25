@@ -336,6 +336,7 @@ public class Salon1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_eliminarActionPerformed
 
     private void jBguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBguardarActionPerformed
+        try{
         Empleado emp=new Empleado();
         EmpleadoD empD=new EmpleadoD();
         PedidoD pedD = new PedidoD();
@@ -360,7 +361,10 @@ public class Salon1 extends javax.swing.JInternalFrame {
         ped.setImporte(Double.parseDouble(total.getText()+""));
         
         pedD.modificarPedido(ped);
-        
+        }catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, "Debe agregar un producto");
+            
+        } 
          
         
         camarero.setEnabled(false);
