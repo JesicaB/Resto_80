@@ -18,7 +18,7 @@ import resto_80.Entidades.Pedido;
 import resto_80.Entidades.Producto;
 import resto_80.Entidades.ProductoPedido;
 
-public class Salon1 extends javax.swing.JInternalFrame {
+public class Salon extends javax.swing.JInternalFrame {
 
     private DefaultTableModel modelo = new DefaultTableModel() {
 
@@ -36,7 +36,7 @@ public class Salon1 extends javax.swing.JInternalFrame {
 
     int npedido;
 
-    public Salon1() {
+    public Salon() {
 
         initComponents();
         panel2.setVisible(false);

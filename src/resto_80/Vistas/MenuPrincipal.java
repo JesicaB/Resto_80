@@ -179,7 +179,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         escritorio.removeAll();
         escritorio.repaint();
-        Salon1 s = new Salon1();
+        Salon s = new Salon();
         s.setVisible(true);
         escritorio.add(s);
         escritorio.moveToFront(s);
