@@ -50,6 +50,8 @@ public class consultaPedidoPorMeseroHoy extends javax.swing.JInternalFrame {
         jDCFecha = new com.toedter.calendar.JDateChooser();
         jBBuscar = new javax.swing.JButton();
 
+        setClosable(true);
+
         jLMeseroHoy.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLMeseroHoy.setText("Mesero");
 

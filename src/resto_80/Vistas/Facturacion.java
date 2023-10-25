@@ -5,17 +5,42 @@
  */
 package resto_80.Vistas;
 
+import javax.swing.table.DefaultTableModel;
+import resto_80.Datos.MesaD;
+import resto_80.Entidades.Mesa;
+
 /**
  *
  * @author nicop
  */
 public class Facturacion extends javax.swing.JInternalFrame {
 
+    private DefaultTableModel modelo = new DefaultTableModel() {
+
+        public boolean isCellEditable(int f, int c) {
+
+             return false;
+            }
+        
+
+    };
+    private DefaultTableModel modelo2 = new DefaultTableModel() {
+
+        public boolean isCellEditable(int f, int c) {
+
+             return false;
+            }
+        
+
+    };
     /**
      * Creates new form Facturacion
      */
     public Facturacion() {
         initComponents();
+        armarCabecera1();
+        armarCabecera2();
+        cargarMesas();
     }
 
     /**
@@ -27,21 +52,233 @@ public class Facturacion extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jCMesa = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabla1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabla2 = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        cobroParcial = new javax.swing.JButton();
+        cobroTotal = new javax.swing.JButton();
+        vovler = new javax.swing.JButton();
+
+        jLabel1.setText("MESA");
+
+        tabla1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tabla1);
+
+        tabla2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tabla2);
+
+        jLabel2.setText("PEDIDOS");
+
+        jLabel3.setText("DETALLE DEL PEDIDO");
+
+        cobroParcial.setText("COBRAR PEDIDO");
+        cobroParcial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cobroParcialActionPerformed(evt);
+            }
+        });
+
+        cobroTotal.setText("COBRAR TODO");
+        cobroTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cobroTotalActionPerformed(evt);
+            }
+        });
+
+        vovler.setText("VOLVER");
+        vovler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vovlerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(303, 303, 303)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jCMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(343, 343, 343)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(165, 165, 165)
+                        .addComponent(cobroParcial)
+                        .addGap(27, 27, 27)
+                        .addComponent(cobroTotal)
+                        .addGap(27, 27, 27)
+                        .addComponent(vovler, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(308, 308, 308)
+                        .addComponent(jLabel3)))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(26, 26, 26)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cobroParcial)
+                    .addComponent(cobroTotal)
+                    .addComponent(vovler))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cobroParcialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cobroParcialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cobroParcialActionPerformed
+
+    private void cobroTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cobroTotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cobroTotalActionPerformed
+
+    private void vovlerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vovlerActionPerformed
+       
+        MenuPrincipal.escritorio.removeAll();
+         MenuPrincipal.escritorio.repaint();
+        Salon s = new Salon();
+        s.setVisible(true);
+         MenuPrincipal.escritorio.add(s);
+         MenuPrincipal.escritorio.moveToFront(s);
+          
+    
+        
+    }//GEN-LAST:event_vovlerActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cobroParcial;
+    private javax.swing.JButton cobroTotal;
+    private javax.swing.JComboBox<String> jCMesa;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tabla1;
+    private javax.swing.JTable tabla2;
+    private javax.swing.JButton vovler;
     // End of variables declaration//GEN-END:variables
+
+private void armarCabecera1() {
+        modelo.addColumn("idPedido");
+        modelo.addColumn("Fecha y hora");
+        modelo.addColumn("Mesero");
+        modelo.addColumn("Importe");
+        modelo.addColumn("Estado");
+
+        tabla1.setModel(modelo);
+    }
+    
+    private void armarCabecera2() {
+        modelo2.addColumn("Productos");
+        modelo2.addColumn("Cantidad");
+        modelo2.addColumn("Sub Total");
+
+        tabla2.setModel(modelo2);
+    }
+    
+ private void cargarMesas() {
+        MesaD mesd = new MesaD();
+
+        for (Mesa mesa : mesd.listarMesas()) {
+
+            if (mesa.isEstado() == true) {
+                jCMesa.addItem(mesa.getNumeroMesa()+"");
+            }
+        }
+    }
+    
+    private void cargarTabla(){
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+ 
+ 
+ 
+ 
+    private void borrarTabla(){
+    
+    int filas = tabla1.getRowCount()-1;
+    
+    for(; filas>=0;filas--){
+        
+        modelo.removeRow(filas);
+    }
+    
+    
+    
+}
+    
+        private void borrarTabla2(){
+    
+    int filas = tabla2.getRowCount()-1;
+    
+    for(; filas>=0;filas--){
+        
+        modelo2.removeRow(filas);
+    }
+    
+    
+    
+}
+
+
 }

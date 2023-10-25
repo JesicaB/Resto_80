@@ -37,10 +37,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         escritorio.removeAll();
         escritorio.repaint();
-        boton.setVisible(true);
-        escritorio.add(boton);
-        escritorio.moveToFront(boton);
-    }
+       }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,7 +49,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         escritorio = new javax.swing.JDesktopPane();
-        boton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         Producto = new javax.swing.JMenuItem();
@@ -62,6 +58,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         pedidosMesas = new javax.swing.JMenuItem();
+        SALON = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menú Principal");
@@ -77,14 +74,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 742, Short.MAX_VALUE)
         );
-
-        boton.setBackground(new java.awt.Color(42, 240, 193));
-        boton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salon.jpeg"))); // NOI18N
-        boton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonActionPerformed(evt);
-            }
-        });
 
         jMenu1.setText("Administración ");
 
@@ -118,9 +107,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu8.setText("Consultas");
 
         jMenuItem4.setText("Cierre de Caja");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu8.add(jMenuItem4);
 
         jMenuItem5.setText("Pedido por Mesero");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu8.add(jMenuItem5);
 
         pedidosMesas.setText("Pedido Por Mesa");
@@ -133,6 +132,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu8);
 
+        SALON.setText("Salon");
+        SALON.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SALONMouseClicked(evt);
+            }
+        });
+        SALON.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SALONActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(SALON);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -141,21 +153,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(boton, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 782, Short.MAX_VALUE)))
+                .addGap(0, 24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(boton, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 432, Short.MAX_VALUE)))
+                .addGap(0, 26, Short.MAX_VALUE))
         );
 
         pack();
@@ -169,26 +173,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.add(gdp);
         escritorio.moveToFront(gdp);
         
-        boton.setVisible(true);
-        escritorio.add(boton);
-        escritorio.moveToBack(boton);
+    
     }//GEN-LAST:event_ProductoActionPerformed
-
-    private void botonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActionPerformed
-        // TODO add your handling code here:
-        
-        escritorio.removeAll();
-        escritorio.repaint();
-        Salon s = new Salon();
-        s.setVisible(true);
-        escritorio.add(s);
-        escritorio.moveToFront(s);
-        
-        boton.setVisible(true);
-        escritorio.add(boton);
-        escritorio.moveToBack(boton);
-        
-    }//GEN-LAST:event_botonActionPerformed
 
     private void EmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpleadoActionPerformed
         escritorio.removeAll();
@@ -198,9 +184,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.add(gde);
         escritorio.moveToFront(gde);
         
-        boton.setVisible(true);
-        escritorio.add(boton);
-        escritorio.moveToBack(boton);
+    
     }//GEN-LAST:event_EmpleadoActionPerformed
 
     private void MesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MesaActionPerformed
@@ -211,9 +195,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.add(gdm);
         escritorio.moveToFront(gdm);
         
-        boton.setVisible(true);
-        escritorio.add(boton);
-        escritorio.moveToBack(boton);
+   
     }//GEN-LAST:event_MesaActionPerformed
 
     private void pedidosMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedidosMesasActionPerformed
@@ -225,11 +207,52 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.add(pm);
         escritorio.moveToFront(pm);
         
-        boton.setVisible(true);
-        escritorio.add(boton);
-        escritorio.moveToBack(boton);
-        
+ 
     }//GEN-LAST:event_pedidosMesasActionPerformed
+
+    private void SALONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SALONActionPerformed
+       
+        escritorio.removeAll();
+        escritorio.repaint();
+        Salon sal = new Salon ();
+        sal.setVisible(true);
+        escritorio.add(sal);
+        escritorio.moveToFront(sal);
+        
+     
+    }//GEN-LAST:event_SALONActionPerformed
+
+    private void SALONMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SALONMouseClicked
+        
+        escritorio.removeAll();
+        escritorio.repaint();
+        Salon sal = new Salon ();
+        sal.setVisible(true);
+        escritorio.add(sal);
+        escritorio.moveToFront(sal);
+    
+    }//GEN-LAST:event_SALONMouseClicked
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        Cajas cajas = new Cajas ();
+        cajas.setVisible(true);
+        escritorio.add(cajas);
+        escritorio.moveToFront(cajas);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+       
+        escritorio.removeAll();
+        escritorio.repaint();
+        consultaPedidoPorMeseroHoy ppm = new consultaPedidoPorMeseroHoy ();
+        ppm.setVisible(true);
+        escritorio.add(ppm);
+        escritorio.moveToFront(ppm);
+        
+        
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -270,8 +293,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public javax.swing.JMenuItem Empleado;
     public javax.swing.JMenuItem Mesa;
     public javax.swing.JMenuItem Producto;
-    public javax.swing.JButton boton;
-    public javax.swing.JDesktopPane escritorio;
+    public javax.swing.JMenu SALON;
+    public static javax.swing.JDesktopPane escritorio;
     public javax.swing.JMenu jMenu1;
     public javax.swing.JMenu jMenu8;
     public javax.swing.JMenuBar jMenuBar1;
