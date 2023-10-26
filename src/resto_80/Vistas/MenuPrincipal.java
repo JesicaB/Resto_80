@@ -87,6 +87,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu1.setText("Administración ");
 
         Producto.setText("Producto");
+        Producto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Producto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ProductoActionPerformed(evt);
@@ -95,6 +96,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu1.add(Producto);
 
         Mesa.setText("Mesa");
+        Mesa.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Mesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MesaActionPerformed(evt);
@@ -104,6 +106,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         Empleado.setText("Empleado");
         Empleado.setToolTipText("");
+        Empleado.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Empleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmpleadoActionPerformed(evt);
@@ -116,6 +119,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu8.setText("Consultas");
 
         jMenuItem4.setText("Cierre de Caja");
+        jMenuItem4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
@@ -124,6 +128,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu8.add(jMenuItem4);
 
         jMenuItem5.setText("Pedido por Mesero");
+        jMenuItem5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -132,6 +137,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu8.add(jMenuItem5);
 
         pedidosMesas.setText("Pedido Por Mesa");
+        pedidosMesas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         pedidosMesas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pedidosMesasActionPerformed(evt);

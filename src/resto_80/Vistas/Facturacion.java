@@ -5,6 +5,7 @@
  */
 package resto_80.Vistas;
 
+import java.awt.Color;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import resto_80.Datos.MesaD;
@@ -47,7 +48,7 @@ public class Facturacion extends javax.swing.JInternalFrame {
         armarCabecera1();
         armarCabecera2();
         cargarMesas();
-
+        this.getContentPane().setBackground(Color.orange);
     }
 
     /**
@@ -77,6 +78,7 @@ public class Facturacion extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("MESA");
 
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
@@ -110,25 +112,33 @@ public class Facturacion extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(tabla2);
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("PEDIDOS");
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("DETALLE DEL PEDIDO");
 
+        cobroParcial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cobroParcial.setText("COBRAR PEDIDO");
+        cobroParcial.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         cobroParcial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cobroParcialActionPerformed(evt);
             }
         });
 
+        cobroTotal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cobroTotal.setText("COBRAR TODO");
+        cobroTotal.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         cobroTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cobroTotalActionPerformed(evt);
             }
         });
 
+        vovler.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         vovler.setText("VOLVER");
+        vovler.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         vovler.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vovlerActionPerformed(evt);
@@ -152,18 +162,18 @@ public class Facturacion extends javax.swing.JInternalFrame {
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(343, 343, 343)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(165, 165, 165)
                         .addComponent(cobroParcial)
-                        .addGap(27, 27, 27)
+                        .addGap(28, 28, 28)
                         .addComponent(cobroTotal)
-                        .addGap(27, 27, 27)
+                        .addGap(26, 26, 26)
                         .addComponent(vovler, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(315, 315, 315)
-                        .addComponent(jLabel3)))
+                        .addGap(273, 273, 273)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(322, 322, 322)
+                        .addComponent(jLabel2)))
                 .addContainerGap(179, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -173,20 +183,24 @@ public class Facturacion extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cobroParcial)
-                    .addComponent(cobroTotal)
-                    .addComponent(vovler))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(187, 187, 187)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cobroParcial)
+                            .addComponent(cobroTotal)
+                            .addComponent(vovler))
+                        .addGap(37, 37, 37))))
         );
 
         pack();

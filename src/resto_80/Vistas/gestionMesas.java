@@ -5,6 +5,7 @@
  */
 package resto_80.Vistas;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import resto_80.Datos.MesaD;
 import resto_80.Entidades.Mesa;
@@ -20,6 +21,7 @@ public class gestionMesas extends javax.swing.JInternalFrame {
      */
     public gestionMesas() {
         initComponents();
+        this.getContentPane().setBackground(Color.orange);
     }
 
     /**
@@ -49,33 +51,37 @@ public class gestionMesas extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("GESTION DE MESAS");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("ID MESA");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("N° MESA");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("CAPACIDAD");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("ESTADO");
 
         jTidMesa.setEnabled(false);
 
         jTCapacidad.setEnabled(false);
 
+        jBBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jBBuscar.setText("BUSCAR");
+        jBBuscar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBBuscarActionPerformed(evt);
             }
         });
 
+        jBGuardar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jBGuardar.setText("GUARDAR");
+        jBGuardar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jBGuardar.setEnabled(false);
         jBGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,14 +89,18 @@ public class gestionMesas extends javax.swing.JInternalFrame {
             }
         });
 
+        jBNuevo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jBNuevo.setText("NUEVO");
+        jBNuevo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jBNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBNuevoActionPerformed(evt);
             }
         });
 
+        jRInactivo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRInactivo.setText("INACTIVO");
+        jRInactivo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jRInactivo.setEnabled(false);
         jRInactivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +108,9 @@ public class gestionMesas extends javax.swing.JInternalFrame {
             }
         });
 
+        jRActivo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRActivo.setText("ACTIVO");
+        jRActivo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jRActivo.setEnabled(false);
         jRActivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,9 +141,9 @@ public class gestionMesas extends javax.swing.JInternalFrame {
                             .addComponent(jTCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(77, 77, 77)
                 .addComponent(jBBuscar)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(123, Short.MAX_VALUE)
+                .addContainerGap(138, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jBNuevo)
@@ -167,7 +179,7 @@ public class gestionMesas extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5)
                     .addComponent(jRActivo)
                     .addComponent(jRInactivo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBNuevo)
                     .addComponent(jBGuardar))

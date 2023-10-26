@@ -1,5 +1,6 @@
 package resto_80.Vistas;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
@@ -44,7 +45,7 @@ public class Salon extends javax.swing.JInternalFrame {
         armarCabecera();
         cargarMeseros();
         cargarProductos();
-
+        this.getContentPane().setBackground(Color.orange);
     }
 
     /**
@@ -88,18 +89,23 @@ public class Salon extends javax.swing.JInternalFrame {
 
         productos.setEnabled(false);
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Camarero");
         jLabel1.setEnabled(false);
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Productos");
         jLabel3.setEnabled(false);
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Cantidad");
         jLabel4.setEnabled(false);
 
         cantidad.setEnabled(false);
 
+        cargarProd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cargarProd.setText("Cargar Producto");
+        cargarProd.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         cargarProd.setEnabled(false);
         cargarProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,7 +113,9 @@ public class Salon extends javax.swing.JInternalFrame {
             }
         });
 
+        eliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         eliminar.setText("Eliminar Producto");
+        eliminar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         eliminar.setEnabled(false);
         eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,14 +126,18 @@ public class Salon extends javax.swing.JInternalFrame {
         jLabel45.setFont(new java.awt.Font("Segoe UI Historic", 1, 18)); // NOI18N
         jLabel45.setText("MESA");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Total:");
         jLabel5.setEnabled(false);
 
         total.setEditable(false);
+        total.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         total.setText("$");
         total.setEnabled(false);
 
+        jBguardar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jBguardar.setText("GUARDAR");
+        jBguardar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jBguardar.setEnabled(false);
         jBguardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,7 +148,9 @@ public class Salon extends javax.swing.JInternalFrame {
         nmesa.setFont(new java.awt.Font("Segoe UI Historic", 1, 18)); // NOI18N
         nmesa.setText("N°");
 
+        jBNuePedido.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jBNuePedido.setText("NUEVO PEDIDO");
+        jBNuePedido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jBNuePedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBNuePedidoActionPerformed(evt);
@@ -161,40 +175,41 @@ public class Salon extends javax.swing.JInternalFrame {
         panel2Layout.setHorizontalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2Layout.createSequentialGroup()
-                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel2Layout.createSequentialGroup()
-                                    .addComponent(cargarProd)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                                    .addComponent(eliminar))
-                                .addComponent(cantidad, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(productos, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(camarero, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addComponent(jLabel45)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nmesa, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(jBNuePedido, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panel2Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel4)
+                                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel2Layout.createSequentialGroup()
+                                        .addComponent(cargarProd)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                                        .addComponent(eliminar))
+                                    .addComponent(cantidad, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(productos, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(camarero, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(panel2Layout.createSequentialGroup()
+                            .addGap(111, 111, 111)
+                            .addComponent(jLabel45)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(nmesa, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panel2Layout.createSequentialGroup()
+                            .addGap(71, 71, 71)
+                            .addComponent(jBNuePedido, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panel2Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panel2Layout.createSequentialGroup()
+                            .addGap(33, 33, 33)
+                            .addComponent(jBguardar)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel2Layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
                         .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addComponent(jBguardar))
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(26, 26, 26)
+                        .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
@@ -224,16 +239,18 @@ public class Salon extends javax.swing.JInternalFrame {
                     .addComponent(eliminar))
                 .addGap(42, 42, 42)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
+                .addGap(35, 35, 35)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(26, 26, 26)
                 .addComponent(jBguardar)
-                .addGap(268, 268, 268))
+                .addGap(299, 299, 299))
         );
 
+        jBcobrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jBcobrar.setText("COBRAR");
+        jBcobrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jBcobrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBcobrarActionPerformed(evt);
@@ -261,8 +278,9 @@ public class Salon extends javax.swing.JInternalFrame {
                     .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBcobrar)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBcobrar)
+                        .addGap(6, 6, 6)))
                 .addGap(24, 24, 24))
         );
 

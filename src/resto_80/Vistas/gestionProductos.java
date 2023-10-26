@@ -5,6 +5,7 @@
  */
 package resto_80.Vistas;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -30,7 +31,7 @@ public class gestionProductos extends javax.swing.JInternalFrame {
     public gestionProductos() {
         initComponents();
         armarCabecera();
-
+        this.getContentPane().setBackground(Color.orange);
     }
 
     /**
@@ -68,19 +69,19 @@ public class gestionProductos extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("GESTION DE PRODUCTOS");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("ID PRODUCTO");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("NOMBRE");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("STOCK");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("ESTADO");
 
         jTidproducto.setEnabled(false);
@@ -89,7 +90,9 @@ public class gestionProductos extends javax.swing.JInternalFrame {
 
         jTStock.setEnabled(false);
 
+        jBNuevo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jBNuevo.setText("NUEVO");
+        jBNuevo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jBNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBNuevoActionPerformed(evt);
@@ -98,10 +101,12 @@ public class gestionProductos extends javax.swing.JInternalFrame {
 
         jTPrecio.setEnabled(false);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("PRECIO");
 
+        jBGuardar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jBGuardar.setText("GUARDAR");
+        jBGuardar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jBGuardar.setEnabled(false);
         jBGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +114,9 @@ public class gestionProductos extends javax.swing.JInternalFrame {
             }
         });
 
+        jRActivo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jRActivo.setText("ACTIVO");
+        jRActivo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jRActivo.setEnabled(false);
         jRActivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,7 +124,9 @@ public class gestionProductos extends javax.swing.JInternalFrame {
             }
         });
 
+        jRInactivo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jRInactivo.setText("INACTIVO");
+        jRInactivo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jRInactivo.setEnabled(false);
         jRInactivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +140,7 @@ public class gestionProductos extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setText("BUSQUEDA");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -235,7 +244,7 @@ public class gestionProductos extends javax.swing.JInternalFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jRActivo)
                         .addComponent(jRInactivo)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBNuevo)
                     .addComponent(jBGuardar))

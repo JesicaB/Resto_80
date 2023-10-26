@@ -1,5 +1,6 @@
 package resto_80.Vistas;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import resto_80.Datos.EmpleadoD;
 import resto_80.Entidades.Empleado;
@@ -8,7 +9,7 @@ public class gestionEmpleados extends javax.swing.JInternalFrame {
 
     public gestionEmpleados() {
         initComponents();
-
+this.getContentPane().setBackground(Color.orange);
     }
 
     /**
@@ -38,33 +39,37 @@ public class gestionEmpleados extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        jLabel1.setFont(new java.awt.Font("Bodoni MT", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("GESTION DE EMPLEADOS");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("ID EMPLEADO");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("NOMBRE Y APELLIDO");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("DNI");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("ESTADO");
 
         jTidEmpleado.setEnabled(false);
 
         jTNombre.setEnabled(false);
 
+        jBBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jBBuscar.setText("BUSCAR");
+        jBBuscar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBBuscarActionPerformed(evt);
             }
         });
 
+        jBGuardar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jBGuardar.setText("GUARDAR");
+        jBGuardar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jBGuardar.setEnabled(false);
         jBGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,14 +77,18 @@ public class gestionEmpleados extends javax.swing.JInternalFrame {
             }
         });
 
+        jBNuevo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jBNuevo.setText("NUEVO");
+        jBNuevo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jBNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBNuevoActionPerformed(evt);
             }
         });
 
+        jRActivo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRActivo.setText("ACTIVO");
+        jRActivo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jRActivo.setEnabled(false);
         jRActivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +96,9 @@ public class gestionEmpleados extends javax.swing.JInternalFrame {
             }
         });
 
+        jRInactivo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jRInactivo.setText("INACTIVO");
+        jRInactivo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jRInactivo.setEnabled(false);
         jRInactivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,7 +128,7 @@ public class gestionEmpleados extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jTidEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                         .addComponent(jBBuscar)
                         .addGap(72, 72, 72))
                     .addGroup(layout.createSequentialGroup()
@@ -161,7 +172,7 @@ public class gestionEmpleados extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5)
                     .addComponent(jRActivo)
                     .addComponent(jRInactivo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBNuevo)
                     .addComponent(jBGuardar))

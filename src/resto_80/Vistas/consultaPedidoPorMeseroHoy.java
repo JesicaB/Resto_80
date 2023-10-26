@@ -5,6 +5,7 @@
  */
 package resto_80.Vistas;
 
+import java.awt.Color;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.List;
@@ -32,6 +33,7 @@ public class consultaPedidoPorMeseroHoy extends javax.swing.JInternalFrame {
         initComponents();
         armarCabecera();
         cargarMeseros();
+        this.getContentPane().setBackground(Color.orange);
     }
 
     /**
@@ -52,7 +54,7 @@ public class consultaPedidoPorMeseroHoy extends javax.swing.JInternalFrame {
 
         setClosable(true);
 
-        jLMeseroHoy.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLMeseroHoy.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLMeseroHoy.setText("Mesero");
 
         jCBMeserosHoy.addActionListener(new java.awt.event.ActionListener() {
@@ -74,7 +76,11 @@ public class consultaPedidoPorMeseroHoy extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTPedidos);
 
+        jDCFecha.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jBBuscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jBBuscar.setText("BUSCAR");
+        jBBuscar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBBuscarActionPerformed(evt);
@@ -99,9 +105,9 @@ public class consultaPedidoPorMeseroHoy extends javax.swing.JInternalFrame {
                         .addGap(228, 228, 228)
                         .addComponent(jBBuscar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(203, 203, 203)
-                        .addComponent(jDCFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                        .addGap(176, 176, 176)
+                        .addComponent(jDCFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,11 +116,11 @@ public class consultaPedidoPorMeseroHoy extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLMeseroHoy)
                     .addComponent(jCBMeserosHoy, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jDCFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jDCFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBBuscar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
