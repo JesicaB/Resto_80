@@ -50,7 +50,7 @@ public class ProductoD {
     }
 
     public void modificarProducto(Producto producto) {
-        String sql = "UPDATE productos SET Nombre=?,Precio=?,Stock=? WHERE idProducto=?";
+        String sql = "UPDATE productos SET Nombre=?,Precio=?,Stock=?, estado=?WHERE idProducto=?";
 
         try {
 
@@ -59,8 +59,9 @@ public class ProductoD {
             ps.setString(1, producto.getNombre());
             ps.setDouble(2, producto.getPrecio());
             ps.setInt(3, producto.getStock());
-            ps.setInt(4, producto.getIdProducto());
-
+            ps.setBoolean(4, producto.isEstado());
+            ps.setInt(5, producto.getIdProducto());
+            
             int exito = ps.executeUpdate();
 
             if (exito == 1) {

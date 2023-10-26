@@ -10,11 +10,9 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import resto_80.Datos.MesaD;
 import resto_80.Datos.PedidoD;
-import resto_80.Datos.ProductoD;
 import resto_80.Datos.ProductoPedidoD;
 import resto_80.Entidades.Mesa;
 import resto_80.Entidades.Pedido;
-import resto_80.Entidades.Producto;
 import resto_80.Entidades.ProductoPedido;
 
 /**
@@ -252,16 +250,17 @@ public class Facturacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_vovlerActionPerformed
 
     private void jCMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCMesaActionPerformed
+        
         borrarTabla();
         cargarTabla();
 
     }//GEN-LAST:event_jCMesaActionPerformed
 
     private void tabla1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla1MouseClicked
-    
-   
+        
         borrarTabla2();
         cargarTabla2();
+        
     }//GEN-LAST:event_tabla1MouseClicked
 
 
@@ -280,31 +279,36 @@ public class Facturacion extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private void armarCabecera1() {
+        
         modelo.addColumn("idPedido");
         modelo.addColumn("Fecha y hora");
         modelo.addColumn("Mesero");
         modelo.addColumn("Importe");
 
         tabla1.setModel(modelo);
+        
     }
 
     private void armarCabecera2() {
+        
         modelo2.addColumn("Productos");
         modelo2.addColumn("Cantidad");
         modelo2.addColumn("Sub Total");
 
         tabla2.setModel(modelo2);
+        
     }
 
     private void cargarMesas() {
+   
         MesaD mesd = new MesaD();
 
         for (Mesa mesa : mesd.listarMesas()) {
 
-            if (mesa.isEstado() == true) {
-                jCMesa.addItem(mesa.getNumeroMesa() + "");
-            }
+            jCMesa.addItem(mesa.getNumeroMesa() + "");
+
         }
+
     }
 
     private void cargarTabla() {

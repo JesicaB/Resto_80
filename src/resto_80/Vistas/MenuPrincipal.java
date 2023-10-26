@@ -5,20 +5,10 @@
  */
 package resto_80.Vistas;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import resto_80.Datos.EmpleadoD;
-import resto_80.Datos.MesaD;
-import resto_80.Datos.ProductoD;
-import resto_80.Entidades.Empleado;
-import resto_80.Entidades.Mesa;
-import resto_80.Entidades.Producto;
 
 /**
  *
@@ -35,10 +25,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
      * Creates new form MenuPrincipal
      */
     public MenuPrincipal() {
+        
         initComponents();
         
         escritorio.removeAll();
         escritorio.repaint();
+        
        }
 
     /**
@@ -181,9 +173,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductoActionPerformed
-       escritorio.removeAll();
+      
+        escritorio.removeAll();
         escritorio.repaint();
-        gestionProductos gdp = new gestionProductos ();
+        gestionProductos gdp = new gestionProductos();
         gdp.setVisible(true);
         escritorio.add(gdp);
         escritorio.moveToFront(gdp);
@@ -192,6 +185,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_ProductoActionPerformed
 
     private void EmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpleadoActionPerformed
+        
         escritorio.removeAll();
         escritorio.repaint();
         gestionEmpleados gde = new gestionEmpleados ();
@@ -199,22 +193,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.add(gde);
         escritorio.moveToFront(gde);
         
-    
     }//GEN-LAST:event_EmpleadoActionPerformed
 
     private void MesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MesaActionPerformed
-         escritorio.removeAll();
+        
+        escritorio.removeAll();
         escritorio.repaint();
         gestionMesas gdm = new gestionMesas ();
         gdm.setVisible(true);
         escritorio.add(gdm);
         escritorio.moveToFront(gdm);
         
-   
     }//GEN-LAST:event_MesaActionPerformed
 
     private void pedidosMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedidosMesasActionPerformed
-        // TODO add your handling code here:
+        
         escritorio.removeAll();
         escritorio.repaint();
         PedidoPorMesa pm = new PedidoPorMesa();
@@ -222,7 +215,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.add(pm);
         escritorio.moveToFront(pm);
         
- 
     }//GEN-LAST:event_pedidosMesasActionPerformed
 
     private void SALONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SALONActionPerformed
@@ -249,12 +241,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_SALONMouseClicked
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        
         escritorio.removeAll();
         escritorio.repaint();
         Cajas cajas = new Cajas ();
         cajas.setVisible(true);
         escritorio.add(cajas);
         escritorio.moveToFront(cajas);
+        
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed

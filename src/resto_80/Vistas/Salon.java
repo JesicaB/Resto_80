@@ -46,6 +46,7 @@ public class Salon extends javax.swing.JInternalFrame {
         cargarMeseros();
         cargarProductos();
         this.getContentPane().setBackground(Color.orange);
+        
     }
 
     /**
@@ -317,6 +318,7 @@ public class Salon extends javax.swing.JInternalFrame {
                 }
                 total.setText(subtotal + "");
                 cantidad.setText("");
+                
             }else{
                 
                 int filas=tabla.getRowCount()-1;
@@ -439,7 +441,11 @@ public class Salon extends javax.swing.JInternalFrame {
         eliminar.setEnabled(false);
         jBguardar.setEnabled(false);
         
-            
+        int i = Integer.parseInt(nmesa.getText());
+        System.out.println(i);
+
+        MesaD md = new MesaD();
+        md.bajaMesa(i);     
         
         panel2.setVisible(false);
 
@@ -484,14 +490,17 @@ public class Salon extends javax.swing.JInternalFrame {
         panel2.setEnabled(false);
         panel1.setVisible(false);
         panel1.setEnabled(false);
-       jBcobrar.setVisible(false);
-       jBcobrar.setEnabled(false);
-       Facturacion fac= new Facturacion();
-       fac.setVisible(true);
-       this.add(fac);
-       this.moveToFront();
-       
-       
+        jBcobrar.setVisible(false);
+        jBcobrar.setEnabled(false);
+        Facturacion fac = new Facturacion();
+        fac.setVisible(true);
+        this.add(fac);
+        this.moveToFront();
+
+        int i = Integer.parseInt(nmesa.getText());
+        MesaD md = new MesaD();
+        md.altaMesa(i);
+        
     }//GEN-LAST:event_jBcobrarActionPerformed
 
     private void tablaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaKeyReleased

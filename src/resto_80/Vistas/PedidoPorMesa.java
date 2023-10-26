@@ -44,10 +44,12 @@ public class PedidoPorMesa extends javax.swing.JInternalFrame {
      * Creates new form PedidoPorMesa
      */
     public PedidoPorMesa() {
+        
         initComponents();
         armarCabecera();
         cargarTabla();
         this.getContentPane().setBackground(Color.orange);
+        
     }
 
     /**
