@@ -49,7 +49,7 @@ public class PedidoD {
 
             if (rs.next()) {
                 pedido.setIdPedido(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Pedido realizado con éxito.");
+                
             }
 
             ps.close();
@@ -78,10 +78,7 @@ public class PedidoD {
 
             int exito = ps.executeUpdate();
 
-            if (exito == 1) {
-                JOptionPane.showMessageDialog(null, "Pedido modificado.");
-            }
-
+           
             ps.close();
 
         } catch (SQLException ex) {
@@ -121,9 +118,7 @@ public class PedidoD {
 
             int bp = ps.executeUpdate();
 
-            if (bp == 1) {
-                JOptionPane.showMessageDialog(null, "Pedido Cancelado");
-            }
+            
             ps.close();
 
         } catch (SQLException ex) {

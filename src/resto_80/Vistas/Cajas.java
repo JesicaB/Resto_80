@@ -127,19 +127,18 @@ public class Cajas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TotalesActionPerformed
 
     private void CalendarioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_CalendarioPropertyChange
-       
+
         // TODO add your handling code here:
     }//GEN-LAST:event_CalendarioPropertyChange
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-
-        Date date = Calendario.getDate();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        String daySqlFormat = df.format(date);
-
-        String sql = "SELECT SUM(importe) as total_dia FROM `pedidos` WHERE DATE(fyh) = ?";
-
         try {
+            Date date = Calendario.getDate();
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            String daySqlFormat = df.format(date);
+
+            String sql = "SELECT SUM(importe) as total_dia FROM `pedidos` WHERE DATE(fyh) = ?";
+
             PreparedStatement ps = Conexión.getConnection().prepareStatement(sql);
 
             ps.setString(1, daySqlFormat);
@@ -149,19 +148,17 @@ public class Cajas extends javax.swing.JInternalFrame {
             if (rs.next()) {
                 double resul = rs.getDouble("total_dia");
                 Totales.setText(String.valueOf(resul));
-                
-//                JOptionPane.showMessageDialog(null, "El dia '"this.getContentPane().setBackground(Color.orange);
-//                        + daySqlFormat + "' se facturo un importe de: $"
-//                        + resul + ".");
+
             }
 
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Hubo un error al intentar sumar los importes del dia '"
-                    + daySqlFormat + "'.");
-        }
+            JOptionPane.showMessageDialog(null, "Hubo un error al intentar sumar los importes del dia '");
 
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una fecha");
+        }
     }//GEN-LAST:event_jButton1MouseClicked
 
 

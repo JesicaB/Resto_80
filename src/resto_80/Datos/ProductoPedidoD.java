@@ -40,7 +40,7 @@ public class ProductoPedidoD {
 
             if (rs.next()) {
                 pp.setIdPP(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Producto pedido cargado con éxito.");
+                
             }
 
             ps.close();

@@ -497,9 +497,7 @@ public class Salon extends javax.swing.JInternalFrame {
         this.add(fac);
         this.moveToFront();
 
-        int i = Integer.parseInt(nmesa.getText());
-        MesaD md = new MesaD();
-        md.altaMesa(i);
+        
         
     }//GEN-LAST:event_jBcobrarActionPerformed
 

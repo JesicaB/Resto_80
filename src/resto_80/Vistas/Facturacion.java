@@ -211,10 +211,19 @@ public class Facturacion extends javax.swing.JInternalFrame {
         PedidoD peD = new PedidoD();
 
         peD.bajaPedido(Integer.parseInt(tabla1.getValueAt(filaselec, 0) + ""));
-
+        
+        
         borrarTabla();
         borrarTabla2();
         cargarTabla();
+        int pendientes=tabla1.getRowCount();
+        if(pendientes==0){
+              int i = Integer.parseInt(jCMesa.getSelectedItem()+"");
+        MesaD md = new MesaD();
+        md.altaMesa(i);
+            
+        }
+        
 
 
     }//GEN-LAST:event_cobroParcialActionPerformed
@@ -233,6 +242,10 @@ public class Facturacion extends javax.swing.JInternalFrame {
         borrarTabla();
         borrarTabla2();
         cargarTabla();
+        
+        int i = Integer.parseInt(jCMesa.getSelectedItem()+"");
+        MesaD md = new MesaD();
+        md.altaMesa(i);
 
 
     }//GEN-LAST:event_cobroTotalActionPerformed

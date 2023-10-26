@@ -105,9 +105,7 @@ public class MesaD {
 
             int bm = ps.executeUpdate();
 
-            if (bm == 1) {
-                JOptionPane.showMessageDialog(null, "Mesa dada de Baja");
-            }
+            
             ps.close();
 
         } catch (SQLException ex) {
