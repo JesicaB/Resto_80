@@ -168,6 +168,11 @@ public class Salon extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabla.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tablaKeyReleased(evt);
+            }
+        });
         jScrollPane2.setViewportView(tabla);
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
@@ -488,6 +493,42 @@ public class Salon extends javax.swing.JInternalFrame {
        
        
     }//GEN-LAST:event_jBcobrarActionPerformed
+
+    private void tablaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaKeyReleased
+      try{
+    ProductoD pD = new ProductoD();
+    int filaselec=tabla.getSelectedRow();
+    
+            Producto p = (pD.buscarProductoxNombre(tabla.getValueAt(filaselec,0)+""));
+        
+                String n = p.getNombre();
+                    int c = Integer.parseInt(tabla.getValueAt(filaselec, 1)+"");
+                    double precio = c * p.getPrecio();
+
+                    
+                 tabla.setValueAt(precio, tabla.getSelectedRow(), 2);
+            
+                int filas1 = tabla.getRowCount() - 1;
+                double subtotal = 0;
+                for (int i = 0; i <= filas1; i++) {
+
+                subtotal = subtotal + (Double.parseDouble(tabla.getValueAt(i, 2).toString()));
+
+                }
+                total.setText(subtotal + "");
+                cantidad.setText("");
+        
+        
+    }catch(NumberFormatException ex){
+           int filaselec=tabla.getSelectedRow();
+           if((tabla.getValueAt(filaselec, 1)+"").equalsIgnoreCase("")){
+           JOptionPane.showMessageDialog(null, "Debe ingresar la cantidad de productos solicitados");
+           }else{
+               JOptionPane.showMessageDialog(null, "Ingrese solo numeros");
+               tabla.setValueAt("", tabla.getSelectedRow(), 1);
+           }
+    }
+    }//GEN-LAST:event_tablaKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
