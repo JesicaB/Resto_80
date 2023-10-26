@@ -6,7 +6,7 @@ public class ProductoPedido {
     private Producto producto;
     private Pedido pedido;
     private int Cantidad;
-    private double subtotal;
+//    private double subtotal;
 
     public ProductoPedido() {
     }
@@ -15,7 +15,7 @@ public class ProductoPedido {
         this.producto = producto;
         this.pedido = pedido;
         this.Cantidad = Cantidad;
-        this.subtotal = subtotal;
+//        this.subtotal = subtotal;
     }
 
     public ProductoPedido(int idPP, Producto producto, Pedido pedido, int Cantidad, double subtotal) {
@@ -23,7 +23,7 @@ public class ProductoPedido {
         this.producto = producto;
         this.pedido = pedido;
         this.Cantidad = Cantidad;
-        this.subtotal = subtotal;
+//        this.subtotal = subtotal;
     }
 
     
@@ -60,18 +60,20 @@ public class ProductoPedido {
         this.Cantidad = Cantidad;
     }
 
-    public double getSubtotal() {
-        return subtotal;
-    }
-
-    public void setSubtotal(double subtotal) {
-        this.subtotal = subtotal;
-    }
+//    public double getSubtotal() {
+//        return subtotal;
+//    }
+//
+//    public void setSubtotal(double subtotal) {
+//        this.subtotal = subtotal;
+//    }
 
     @Override
     public String toString() {
-        return "ProductoPedido{" + "idPP=" + idPP + ", producto=" + producto + ", pedido=" + pedido + ", Cantidad=" + Cantidad + ", subtotal=" + subtotal + '}';
+        return "ProductoPedido{" + "idPP=" + idPP + ", producto=" + producto + ", pedido=" + pedido + ", Cantidad=" + Cantidad + '}';
     }
+
+    
 
     
    

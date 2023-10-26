@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import resto_80.Entidades.Pedido;
 import resto_80.Entidades.Producto;
 import resto_80.Entidades.ProductoPedido;
 
@@ -132,6 +133,42 @@ public class ProductoPedidoD {
                 Producto p = pd.buscarProducto(rs.getInt("idProducto"));
 
             }
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto pedido.");
+
+        }
+
+        return listaPP;
+    }
+    
+    public List<ProductoPedido> listarPPxPedido(int idPedido) {
+
+        String sql = "SELECT * FROM productospedidos where idPedido=?";
+
+        ArrayList<ProductoPedido> listaPP = new ArrayList<>();
+
+        try {
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idPedido);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                ProductoPedido pp = new ProductoPedido();
+
+                pp.setIdPP(rs.getInt("idPP"));
+                Producto p = pd.buscarProducto(rs.getInt("idProducto"));
+                pp.setProducto(p);
+                Pedido pedido= pedidoD.buscarPedido(rs.getInt("idPedido"));
+                pp.setPedido(pedido);
+                pp.setCantidad(rs.getInt("cantidad"));
+         
+                listaPP.add(pp);
+            }
+            ps.close();
 
         } catch (SQLException ex) {
 

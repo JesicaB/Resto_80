@@ -113,7 +113,7 @@ public class PedidoD {
     }
 
     public void bajaPedido(int idPedido) {
-        String sql = "UPDATE pedidos SET Estado=0 WHERE idPedido=?";
+        String sql = "UPDATE pedidos SET Estado=1 WHERE idPedido=?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -214,4 +214,5 @@ public class PedidoD {
         return pedido;
 
     }
+
 }

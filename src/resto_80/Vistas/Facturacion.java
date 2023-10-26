@@ -5,9 +5,16 @@
  */
 package resto_80.Vistas;
 
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import resto_80.Datos.MesaD;
+import resto_80.Datos.PedidoD;
+import resto_80.Datos.ProductoD;
+import resto_80.Datos.ProductoPedidoD;
 import resto_80.Entidades.Mesa;
+import resto_80.Entidades.Pedido;
+import resto_80.Entidades.Producto;
+import resto_80.Entidades.ProductoPedido;
 
 /**
  *
@@ -19,20 +26,19 @@ public class Facturacion extends javax.swing.JInternalFrame {
 
         public boolean isCellEditable(int f, int c) {
 
-             return false;
-            }
-        
+            return false;
+        }
 
     };
     private DefaultTableModel modelo2 = new DefaultTableModel() {
 
         public boolean isCellEditable(int f, int c) {
 
-             return false;
-            }
-        
+            return false;
+        }
 
     };
+
     /**
      * Creates new form Facturacion
      */
@@ -41,6 +47,7 @@ public class Facturacion extends javax.swing.JInternalFrame {
         armarCabecera1();
         armarCabecera2();
         cargarMesas();
+
     }
 
     /**
@@ -64,6 +71,12 @@ public class Facturacion extends javax.swing.JInternalFrame {
         cobroTotal = new javax.swing.JButton();
         vovler = new javax.swing.JButton();
 
+        jCMesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCMesaActionPerformed(evt);
+            }
+        });
+
         jLabel1.setText("MESA");
 
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
@@ -77,6 +90,11 @@ public class Facturacion extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabla1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla1);
 
         tabla2.setModel(new javax.swing.table.DefaultTableModel(
@@ -144,7 +162,7 @@ public class Facturacion extends javax.swing.JInternalFrame {
                         .addGap(27, 27, 27)
                         .addComponent(vovler, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(308, 308, 308)
+                        .addGap(315, 315, 315)
                         .addComponent(jLabel3)))
                 .addContainerGap(179, Short.MAX_VALUE))
         );
@@ -168,32 +186,69 @@ public class Facturacion extends javax.swing.JInternalFrame {
                     .addComponent(cobroParcial)
                     .addComponent(cobroTotal)
                     .addComponent(vovler))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void cobroParcialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cobroParcialActionPerformed
-        // TODO add your handling code here:
+
+        int filaselec = tabla1.getSelectedRow();
+
+        PedidoD peD = new PedidoD();
+
+        peD.bajaPedido(Integer.parseInt(tabla1.getValueAt(filaselec, 0) + ""));
+
+        borrarTabla();
+        borrarTabla2();
+        cargarTabla();
+
+
     }//GEN-LAST:event_cobroParcialActionPerformed
 
     private void cobroTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cobroTotalActionPerformed
-        // TODO add your handling code here:
+
+        int filas = tabla1.getRowCount() - 1;
+
+        for (int i = 0; i <= filas; i++) {
+
+            PedidoD peD = new PedidoD();
+
+            peD.bajaPedido(Integer.parseInt(tabla1.getValueAt(i, 0) + ""));
+
+        }
+        borrarTabla();
+        borrarTabla2();
+        cargarTabla();
+
+
     }//GEN-LAST:event_cobroTotalActionPerformed
 
     private void vovlerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vovlerActionPerformed
-       
+
         MenuPrincipal.escritorio.removeAll();
-         MenuPrincipal.escritorio.repaint();
+        MenuPrincipal.escritorio.repaint();
         Salon s = new Salon();
         s.setVisible(true);
-         MenuPrincipal.escritorio.add(s);
-         MenuPrincipal.escritorio.moveToFront(s);
-          
-    
-        
+        MenuPrincipal.escritorio.add(s);
+        MenuPrincipal.escritorio.moveToFront(s);
+
+
     }//GEN-LAST:event_vovlerActionPerformed
+
+    private void jCMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCMesaActionPerformed
+        borrarTabla();
+        cargarTabla();
+
+    }//GEN-LAST:event_jCMesaActionPerformed
+
+    private void tabla1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla1MouseClicked
+    
+   
+        borrarTabla2();
+        cargarTabla2();
+    }//GEN-LAST:event_tabla1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -210,16 +265,15 @@ public class Facturacion extends javax.swing.JInternalFrame {
     private javax.swing.JButton vovler;
     // End of variables declaration//GEN-END:variables
 
-private void armarCabecera1() {
+    private void armarCabecera1() {
         modelo.addColumn("idPedido");
         modelo.addColumn("Fecha y hora");
         modelo.addColumn("Mesero");
         modelo.addColumn("Importe");
-        modelo.addColumn("Estado");
 
         tabla1.setModel(modelo);
     }
-    
+
     private void armarCabecera2() {
         modelo2.addColumn("Productos");
         modelo2.addColumn("Cantidad");
@@ -227,58 +281,72 @@ private void armarCabecera1() {
 
         tabla2.setModel(modelo2);
     }
-    
- private void cargarMesas() {
+
+    private void cargarMesas() {
         MesaD mesd = new MesaD();
 
         for (Mesa mesa : mesd.listarMesas()) {
 
             if (mesa.isEstado() == true) {
-                jCMesa.addItem(mesa.getNumeroMesa()+"");
+                jCMesa.addItem(mesa.getNumeroMesa() + "");
             }
         }
     }
-    
-    private void cargarTabla(){
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    }
- 
- 
- 
- 
-    private void borrarTabla(){
-    
-    int filas = tabla1.getRowCount()-1;
-    
-    for(; filas>=0;filas--){
-        
-        modelo.removeRow(filas);
-    }
-    
-    
-    
-}
-    
-        private void borrarTabla2(){
-    
-    int filas = tabla2.getRowCount()-1;
-    
-    for(; filas>=0;filas--){
-        
-        modelo2.removeRow(filas);
-    }
-    
-    
-    
-}
 
+    private void cargarTabla() {
+
+        PedidoD peD = new PedidoD();
+
+        List<Pedido> obtenerPedidos = peD.listarPedidos();
+
+        for (Pedido pedido : obtenerPedidos) {
+
+            if ((jCMesa.getSelectedItem().toString().equalsIgnoreCase(pedido.getMesa().getNumeroMesa() + "")) && ((pedido.isEstado() == false))) {
+
+                modelo.addRow(new Object[]{pedido.getIdPedido(), pedido.getF_H(), pedido.getMesero().getNombre_apellido(), pedido.getImporte()});
+
+            }
+        }
+    }
+
+    private void cargarTabla2() {
+
+        int filaselec = tabla1.getSelectedRow();
+
+        PedidoD peD = new PedidoD();
+        ProductoPedidoD ppD = new ProductoPedidoD();
+        
+        
+        List<ProductoPedido> obtenerProductos = ppD.listarPPxPedido(Integer.parseInt(tabla1.getValueAt(filaselec, 0) + ""));
+        
+        for (ProductoPedido prodped : obtenerProductos) {
+
+            modelo2.addRow(new Object[]{prodped.getProducto().getNombre(), prodped.getCantidad(),(prodped.getCantidad()*prodped.getProducto().getPrecio())});
+
+        }
+
+    }
+
+    private void borrarTabla() {
+
+        int filas = tabla1.getRowCount() - 1;
+
+        for (; filas >= 0; filas--) {
+
+            modelo.removeRow(filas);
+        }
+
+    }
+
+    private void borrarTabla2() {
+
+        int filas = tabla2.getRowCount() - 1;
+
+        for (; filas >= 0; filas--) {
+
+            modelo2.removeRow(filas);
+        }
+
+    }
 
 }

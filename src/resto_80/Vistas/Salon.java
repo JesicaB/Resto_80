@@ -64,8 +64,6 @@ public class Salon extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         cantidad = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabla = new javax.swing.JTable();
         cargarProd = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
         jLabel45 = new javax.swing.JLabel();
@@ -74,6 +72,8 @@ public class Salon extends javax.swing.JInternalFrame {
         jBguardar = new javax.swing.JButton();
         nmesa = new javax.swing.JLabel();
         jBNuePedido = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
         jBcobrar = new javax.swing.JButton();
 
         setClosable(true);
@@ -98,25 +98,6 @@ public class Salon extends javax.swing.JInternalFrame {
         jLabel4.setEnabled(false);
 
         cantidad.setEnabled(false);
-
-        tabla.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        tabla.setEnabled(false);
-        tabla.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                tablaKeyReleased(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tabla);
 
         cargarProd.setText("Cargar Producto");
         cargarProd.setEnabled(false);
@@ -162,6 +143,19 @@ public class Salon extends javax.swing.JInternalFrame {
             }
         });
 
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tabla);
+
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
         panel2Layout.setHorizontalGroup(
@@ -171,38 +165,37 @@ public class Salon extends javax.swing.JInternalFrame {
                     .addGroup(panel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel2Layout.createSequentialGroup()
-                                .addComponent(cargarProd)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-                                .addComponent(eliminar))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel2Layout.createSequentialGroup()
+                                    .addComponent(cargarProd)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                                    .addComponent(eliminar))
                                 .addComponent(cantidad, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(productos, javax.swing.GroupLayout.Alignment.LEADING, 0, 290, Short.MAX_VALUE)
+                                .addComponent(productos, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(camarero, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(panel2Layout.createSequentialGroup()
-                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel2Layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addComponent(jLabel5)
-                                .addGap(18, 18, 18)
-                                .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panel2Layout.createSequentialGroup()
-                                .addGap(111, 111, 111)
-                                .addComponent(jLabel45)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nmesa, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panel2Layout.createSequentialGroup()
-                                .addGap(146, 146, 146)
-                                .addComponent(jBguardar))
-                            .addGroup(panel2Layout.createSequentialGroup()
-                                .addGap(71, 71, 71)
-                                .addComponent(jBNuePedido, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(111, 111, 111)
+                        .addComponent(jLabel45)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nmesa, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel2Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(jBNuePedido, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel2Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel2Layout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addComponent(jBguardar))
+                    .addGroup(panel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,7 +206,7 @@ public class Salon extends javax.swing.JInternalFrame {
                     .addComponent(nmesa, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBNuePedido)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(camarero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -229,15 +222,15 @@ public class Salon extends javax.swing.JInternalFrame {
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cargarProd)
                     .addComponent(eliminar))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jBguardar)
-                .addContainerGap())
+                .addGap(268, 268, 268))
         );
 
         jBcobrar.setText("COBRAR");
@@ -258,22 +251,19 @@ public class Salon extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addComponent(jBcobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
                         .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jBcobrar)))
-                .addContainerGap())
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -282,12 +272,33 @@ public class Salon extends javax.swing.JInternalFrame {
     private void cargarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarProdActionPerformed
         try {
             ProductoD pD = new ProductoD();
-
+            
             Producto p = (pD.buscarProductoxNombre(productos.getSelectedItem() + ""));
 
-            int filas = tabla.getRowCount() - 1;
-            int rep = 0;
+            int filasinicial=tabla.getRowCount()-1;
+            
+            if(filasinicial==-1){
+                    String n = p.getNombre();
+                    int c = Integer.parseInt(cantidad.getText());
+                    double precio = c * p.getPrecio();
 
+                    modelo.addRow(new Object[]{n, c, c * p.getPrecio()});
+                    
+            
+                int filas = tabla.getRowCount() - 1;
+                double subtotal = 0;
+                for (int i = 0; i <= filas; i++) {
+
+                subtotal = subtotal + (Double.parseDouble(tabla.getValueAt(i, 2).toString()));
+
+                }
+                total.setText(subtotal + "");
+                cantidad.setText("");
+            }else{
+                
+                int filas=tabla.getRowCount()-1;
+                int rep=0;
+                        
                 for (int i = 0; i <= filas; i++) {
 
                     if (productos.getSelectedItem().toString().equalsIgnoreCase(tabla.getValueAt(i, 0)+"")) {
@@ -295,29 +306,37 @@ public class Salon extends javax.swing.JInternalFrame {
                         rep++;
                     }
                 }
-
-                if (rep > 1) {
-
-                    JOptionPane.showMessageDialog(null, "Producto ya solicitado, modifique las cantidades desde la tabla.");
-                    cantidad.setText("");
-                } else {
-
+                
+                if(rep==0){
                     String n = p.getNombre();
                     int c = Integer.parseInt(cantidad.getText());
                     double precio = c * p.getPrecio();
 
                     modelo.addRow(new Object[]{n, c, c * p.getPrecio()});
+                    
+            
+                int filas1 = tabla.getRowCount() - 1;
+                double subtotal = 0;
+                for (int i = 0; i <= filas1; i++) {
 
-                    double subtotal = 0;
-                    for (int j = 0; j <= filas; j++) {
+                subtotal = subtotal + (Double.parseDouble(tabla.getValueAt(i, 2).toString()));
 
-                        subtotal = subtotal + (Double.parseDouble(tabla.getValueAt(j, 2).toString()));
-
-                    }
-                total.setText(subtotal + "");
-
-                cantidad.setText("");
                 }
+                total.setText(subtotal + "");
+                cantidad.setText("");
+                    
+                    
+                    
+                }else{
+                    
+                    JOptionPane.showMessageDialog(null, "Producto ya cargado, modifique las cantidades desde la tabla");
+                    cantidad.setText("");
+                    
+                }
+
+            }
+  
+          
         }catch(NumberFormatException ex){
            
            if(cantidad.getText().equalsIgnoreCase("")){
@@ -326,7 +345,7 @@ public class Salon extends javax.swing.JInternalFrame {
                JOptionPane.showMessageDialog(null, "Ingrese solo numeros");
            }
            
-       
+          
         }
         
     }//GEN-LAST:event_cargarProdActionPerformed
@@ -365,7 +384,7 @@ public class Salon extends javax.swing.JInternalFrame {
 
             pp.setProducto(p);
             pp.setCantidad(Integer.parseInt(tabla.getValueAt(i, 1) + ""));
-            pp.setSubtotal(Double.parseDouble(tabla.getValueAt(i, 2) + ""));
+//            pp.setSubtotal(Double.parseDouble(tabla.getValueAt(i, 2) + ""));
             pp.setPedido(ped);
 
             ppD.cargarPP(pp);
@@ -436,32 +455,6 @@ public class Salon extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jBNuePedidoActionPerformed
 
-    private void tablaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tablaKeyReleased
-        try {
-            ProductoD pD = new ProductoD();
-
-            int fila = tabla.getSelectedRow();
-
-            Producto p = (pD.buscarProductoxNombre(tabla.getValueAt(fila, 0) + ""));
-
-            int c = Integer.parseInt(tabla.getValueAt(fila, 1).toString());
-
-            tabla.setValueAt(c * p.getPrecio(), fila, 2);
-
-            int filas = tabla.getRowCount() - 1;
-            double subtotal = 0;
-            for (int i = 0; i <= filas; i++) {
-
-                subtotal = subtotal + (Double.parseDouble(tabla.getValueAt(i, 2).toString()));
-
-            }
-            total.setText(subtotal + "");
-
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(null, "Ingrese solo numeros");
-        }
-    }//GEN-LAST:event_tablaKeyReleased
-
     private void jBcobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBcobrarActionPerformed
 
         panel2.setVisible(false);
@@ -492,10 +485,10 @@ public class Salon extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel nmesa;
-    public javax.swing.JPanel panel1;
-    public javax.swing.JPanel panel2;
+    private javax.swing.JPanel panel1;
+    private javax.swing.JPanel panel2;
     private javax.swing.JComboBox<String> productos;
     private javax.swing.JTable tabla;
     private javax.swing.JTextField total;
