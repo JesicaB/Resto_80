@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import resto_80.Datos.EmpleadoD;
 import resto_80.Datos.PedidoD;
@@ -51,6 +52,7 @@ public class consultaPedidoPorMeseroHoy extends javax.swing.JInternalFrame {
         jTPedidos = new javax.swing.JTable();
         jDCFecha = new com.toedter.calendar.JDateChooser();
         jBBuscar = new javax.swing.JButton();
+        jRBCobrados = new javax.swing.JRadioButton();
 
         setClosable(true);
 
@@ -87,6 +89,8 @@ public class consultaPedidoPorMeseroHoy extends javax.swing.JInternalFrame {
             }
         });
 
+        jRBCobrados.setText("Sólo Cobrados");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,13 +104,15 @@ public class consultaPedidoPorMeseroHoy extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLMeseroHoy)
                                 .addGap(18, 18, 18)
-                                .addComponent(jCBMeserosHoy, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jDCFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(33, 33, 33)
+                                        .addComponent(jRBCobrados, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jCBMeserosHoy, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(228, 228, 228)
-                        .addComponent(jBBuscar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(176, 176, 176)
-                        .addComponent(jDCFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jBBuscar)))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -117,10 +123,12 @@ public class consultaPedidoPorMeseroHoy extends javax.swing.JInternalFrame {
                     .addComponent(jLMeseroHoy)
                     .addComponent(jCBMeserosHoy, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDCFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jRBCobrados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jDCFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBBuscar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
@@ -137,6 +145,8 @@ public class consultaPedidoPorMeseroHoy extends javax.swing.JInternalFrame {
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
         
+        try{            
+              
         EmpleadoD empD = new EmpleadoD();
         borrarTabla();
         Empleado empS = (empD.buscarEmpleadoNombre(jCBMeserosHoy.getSelectedItem()+""));
@@ -145,6 +155,10 @@ public class consultaPedidoPorMeseroHoy extends javax.swing.JInternalFrame {
         LocalDate dia = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         
         cargarPedidos(empS, dia);
+        }catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una fecha");
+        }
+
     }//GEN-LAST:event_jBBuscarActionPerformed
 
 
@@ -153,6 +167,7 @@ public class consultaPedidoPorMeseroHoy extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jCBMeserosHoy;
     private com.toedter.calendar.JDateChooser jDCFecha;
     private javax.swing.JLabel jLMeseroHoy;
+    private javax.swing.JRadioButton jRBCobrados;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTPedidos;
     // End of variables declaration//GEN-END:variables
@@ -160,7 +175,6 @@ public class consultaPedidoPorMeseroHoy extends javax.swing.JInternalFrame {
     private void armarCabecera(){
         modelo.addColumn("ID Pedido");
         modelo.addColumn("Mesa");
-        modelo.addColumn("Estado");
         modelo.addColumn("Fecha");
         modelo.addColumn("Importe");
         jTPedidos.setModel(modelo);
@@ -179,24 +193,37 @@ public class consultaPedidoPorMeseroHoy extends javax.swing.JInternalFrame {
     
     private void cargarPedidos(Empleado empleado, LocalDate dia) {
        
-        PedidoD pedd = new PedidoD();
+    PedidoD pedd = new PedidoD();
         
         
         List<Pedido> obtenerPedidos= pedd.listarPedidos();
         
+            if(jRBCobrados.isSelected()){              
                     
-       
-            for (Pedido pedido : obtenerPedidos) {
+                for (Pedido pedido : obtenerPedidos) {
                 
                                 
-                if(empleado.getIdEmpleado() == pedido.getMesero().getIdEmpleado() && pedido.getF_H().toLocalDate().equals(dia)){
+                    if(empleado.getIdEmpleado() == pedido.getMesero().getIdEmpleado() && pedido.getF_H().toLocalDate().equals(dia) && pedido.isEstado()==true){
                 
-                modelo.addRow(new Object[]{pedido.getIdPedido(), pedido.getMesa().getIdMesa(), pedido.getMesero().getIdEmpleado(), pedido.getF_H(), pedido.getImporte()});
+                    modelo.addRow(new Object[]{pedido.getIdPedido(), pedido.getMesa().getIdMesa(), pedido.getF_H(), pedido.getImporte()});
                 
-                }
+                    }
 
-            }
-      
+                }
+            }else{
+                
+                for (Pedido pedido : obtenerPedidos) {
+                
+                                
+                    if(empleado.getIdEmpleado() == pedido.getMesero().getIdEmpleado() && pedido.getF_H().toLocalDate().equals(dia)){
+                
+                    modelo.addRow(new Object[]{pedido.getIdPedido(), pedido.getMesa().getIdMesa(), pedido.getF_H(), pedido.getImporte()});
+                
+                    }
+
+                }
+                
+            }      
 
     }
     
